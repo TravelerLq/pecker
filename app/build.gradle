@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.yuas.pecker"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -95,7 +95,8 @@ dependencies {
     //weixin
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
 
-
+    //permisssion
+    implementation 'com.github.dfqin:grantor:2.1.0'
 
 
 }

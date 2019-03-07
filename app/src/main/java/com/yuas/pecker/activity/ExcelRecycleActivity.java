@@ -1,15 +1,18 @@
 package com.yuas.pecker.activity;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,6 +20,8 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.github.dfqin.grantor.PermissionListener;
+import com.github.dfqin.grantor.PermissionsUtil;
 import com.yuas.pecker.R;
 import com.yuas.pecker.adapter.ExcelRecycleAdapter;
 import com.yuas.pecker.bean.pecker.FileInfoBean;
@@ -73,6 +78,8 @@ public class ExcelRecycleActivity extends AppCompatActivity {
         searchEngine.start();
         initRecycleView();
 
+        checkAuthority();
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,6 +88,37 @@ public class ExcelRecycleActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    //添加读写访问权限
+
+
+    private void checkAuthority() {
+
+
+        if (PermissionsUtil.hasPermission(ExcelRecycleActivity.this, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+
+        } else {
+            PermissionsUtil.requestPermission(ExcelRecycleActivity.this, new PermissionListener() {
+                        @Override
+                        public void permissionGranted(@NonNull String[] permission) {
+                            Log.e("--", "permissionGranted: 用户授予了访问外部存储的权限");
+                            searchEngine.start();
+
+                        }
+
+                        @Override
+                        public void permissionDenied(@NonNull String[] permission) {
+                            Log.e("--", "permissionDenied: 用户拒绝了访问外部存储的申请");
+                            // needPermissionTips();
+                            ExcelRecycleActivity.this.finish();
+
+                        }
+                    }, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE);
+        }
     }
 
 
@@ -107,7 +145,7 @@ public class ExcelRecycleActivity extends AppCompatActivity {
             public void onSearchDirectory(File file) {
 
                 String searchTitle = file.getPath().replace(Environment.getExternalStorageDirectory().getPath() + File.separator, "");
-//                Loger.e("---searchTitle" + searchTitle);
+                Loger.e("---searchTitle" + searchTitle);
                 toolbar.setSubtitle(file.getPath().replace(Environment.getExternalStorageDirectory().getPath() + File.separator, ""));
             }
 
@@ -127,7 +165,7 @@ public class ExcelRecycleActivity extends AppCompatActivity {
     private void initRecycleView() {
 //        mTask = new MyTask();
 //        mTask.execute();
-        searchEngine.start();
+
         LinearLayoutManager linearLayoutManager =
                 new LinearLayoutManager(context, LinearLayout.VERTICAL, false);
         linearLayoutManager.setRecycleChildrenOnDetach(false);
