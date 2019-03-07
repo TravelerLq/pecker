@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f6f6f6"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_title"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_300"
+        android:paddingLeft="@dimen/dimen_10"
+        android:paddingTop="@dimen/dimen_20"
+        android:paddingRight="@dimen/dimen_10">
+
+        <TextView
+            android:id="@+id/tv_consult"
+            style="@style/textview_custom"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/bg_regtangle_grey_xml"
+            android:text="@string/consult" />
+
+        <TextView
+            android:id="@+id/tv_plan"
+            style="@style/textview_custom"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_regtangle_grey_xml"
+            android:text="@string/plan" />
+
+        <com.jci.vsd.view.ShapedImageView
+            android:id="@+id/shape_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimen_40"
+            android:layout_marginRight="@dimen/dimen_40"
+            android:scaleType="fitXY"
+            android:src="@drawable/bg_pecker_main"
+            app:round_radius="@dimen/dimen_80"
+            app:shape_mode="round_rect" />
+
+
+        <TextView
+            android:id="@+id/tv_audit"
+            style="@style/textview_custom"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_regtangle_grey_xml"
+            android:text="@string/audit" />
+
+        <TextView
+            android:id="@+id/tv_accounting"
+            style="@style/textview_custom"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_regtangle_grey_xml"
+            android:text="@string/agency_accounting" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_sure"
+        style="@style/btn_sure_pecker" />
+
+</LinearLayout>

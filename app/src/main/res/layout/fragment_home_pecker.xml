@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/iv_pecker"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_200"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_pecker_main" />
+
+
+    <!--财税 体检 gone-->
+    <LinearLayout
+        android:id="@+id/ll_financial_examination"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/dimen_20"
+        android:layout_marginEnd="@dimen/dimen_7"
+        android:layout_weight="1"
+        android:background="@drawable/bg_regtangle_grey_xml"
+        android:elevation="@dimen/dimen_10"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_reim"
+            style="@style/home_round"
+            android:src="@drawable/ic_financial_examination" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/home_round_title"
+            android:gravity="center_horizontal"
+            android:text="@string/medical_examination" />
+
+
+    </LinearLayout>
+
+    <!--体检报告 gone-->
+    <LinearLayout
+        android:id="@+id/ll__exam_report"
+
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dimen_7"
+        android:layout_marginRight="@dimen/dimen_20"
+        android:layout_weight="1"
+        android:background="@drawable/bg_regtangle_grey_xml"
+        android:elevation="@dimen/dimen_10"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+
+            style="@style/home_round"
+            android:src="@drawable/ic_expert_advice" />
+
+        <TextView
+
+            style="@style/home_round_title"
+            android:gravity="center_horizontal"
+            android:text="@string/expert_advice" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_15"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2" />
+
+        <!--全面体检-->
+        <LinearLayout
+            android:id="@+id/ll_compre_exam"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+
+                style="@style/home_round_new"
+                android:src="@drawable/ic_financial_examination" />
+
+            <TextView
+                style="@style/home_round_title"
+                android:gravity="center_horizontal"
+                android:text="@string/comprehensive_exam" />
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5">
+
+            <TextView
+                android:layout_width="@dimen/dimen_2"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@color/stock"
+                android:gravity="center" />
+
+        </RelativeLayout>
+
+
+        <!--专家咨询-->
+        <LinearLayout
+            android:id="@+id/ll_expert"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                style="@style/home_round_new"
+                android:src="@drawable/ic_expert_advice" />
+
+            <TextView
+
+                style="@style/home_round_title"
+                android:gravity="center_horizontal"
+                android:text="@string/expert_advice" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2" />
+
+    </LinearLayout>
+
+    <!--下面一排-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_17"
+        android:layout_marginTop="@dimen/dimen_25"
+        android:layout_marginRight="@dimen/dimen_17"
+        android:background="@drawable/bg_regtangle_grey_xml"
+        android:baselineAligned="false"
+        android:elevation="@dimen/dimen_10"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimen_2"
+        android:paddingTop="@dimen/dimen_10"
+        android:paddingRight="@dimen/dimen_2"
+        android:paddingBottom="@dimen/dimen_10">
+
+        <!--财税报表学习-->
+        <LinearLayout
+            android:id="@+id/ll_learn_report"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:elevation="@dimen/dimen_12"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+
+                style="@style/home_round_small"
+                android:contentDescription="TODO"
+                android:src="@drawable/ic_learn_report" />
+
+            <TextView
+                style="@style/home_round_title"
+                android:gravity="center_horizontal"
+                android:text="@string/learn_financial_report" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="@dimen/dimen_2"
+            android:layout_height="match_parent"
+            android:background="@color/stock"/>
+
+        <!--财税政策-->
+        <LinearLayout
+            android:id="@+id/ll_policy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+
+                style="@style/home_round_small"
+                android:contentDescription="TODO"
+                android:src="@drawable/ic_policy_explanation" />
+
+            <TextView
+
+                style="@style/home_round_title"
+                android:gravity="center_horizontal"
+                android:text="@string/financial_policy_explanation" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="@dimen/dimen_2"
+            android:layout_height="match_parent"
+            android:background="@color/stock"/>
+
+        <!--个性定制-->
+        <LinearLayout
+            android:id="@+id/ll_custom_made"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+
+                style="@style/home_round_small"
+                android:src="@drawable/ic_custom_made" />
+
+            <TextView
+
+                style="@style/home_round_title"
+                android:gravity="center_horizontal"
+                android:text="@string/custom_made" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

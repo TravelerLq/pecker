@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f6f6f6"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_title"></include>
+
+
+            <!--所得税及增值税申报数据-->
+            <FrameLayout
+                android:id="@+id/fl_income_vat_report"
+                android:layout_marginTop="@dimen/dimen_40"
+                style="@style/fl_analyze">
+
+                <TextView
+                    style="@style/analyze_text"
+                    android:text="@string/income_vat_report_data" />
+
+                <ImageView
+                    style="@style/analyze_imageview"
+                    android:src="@drawable/ic_config" />
+
+            </FrameLayout>
+
+            <!--资产负债表-->
+            <FrameLayout
+                android:id="@+id/fl_balace_sheet"
+                style="@style/fl_analyze">
+
+                <TextView
+                    style="@style/analyze_text"
+                    android:text="@string/balance_sheet" />
+
+                <ImageView
+                    style="@style/analyze_imageview"
+                    android:src="@drawable/ic_config" />
+
+            </FrameLayout>
+
+            <!--其他数据-->
+            <FrameLayout
+                android:id="@+id/fl_other_data"
+                style="@style/fl_analyze">
+
+                <TextView
+                    style="@style/analyze_text"
+                    android:text="@string/other_data" />
+
+                <ImageView
+                    style="@style/analyze_imageview"
+                    android:src="@drawable/ic_config" />
+
+            </FrameLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_item_expert"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dimen_5"
+    android:layout_marginRight="@dimen/dimen_5"
+    android:layout_marginBottom="@dimen/dimen_30"
+    android:background="@drawable/bg_regtangle_grey_xml"
+    android:padding="@dimen/dimen_5">
+
+    <com.yuas.pecker.view.CircleImageView
+        android:id="@+id/iv_expert_header"
+        android:layout_width="@dimen/dimen_50"
+        android:layout_height="@dimen/dimen_50"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="@dimen/dimen_5"
+        android:src="@drawable/ic_person_header" />
+
+    <TextView
+        android:id="@+id/tv_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_expert_header"
+        android:text="@string/area_good_at" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_area"
+        android:text="@string/price" />
+
+
+</RelativeLayout>

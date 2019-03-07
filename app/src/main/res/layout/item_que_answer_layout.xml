@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_que_answer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dimen_10"
+    android:layout_marginTop="@dimen/dimen_20"
+    android:layout_marginRight="@dimen/dimen_8"
+    android:background="@drawable/bg_regtangle_grey_xml"
+    android:padding="@dimen/dimen_5"
+    android:paddingBottom="@dimen/dimen_5">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/dimen_50"
+        android:layout_height="@dimen/dimen_50"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_default_user_circle" />
+
+    <TextView
+        android:id="@+id/tv_fileds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_icon"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="7dp"
+        android:text="擅长领域：金融"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_question"
+        style="@style/FileSearcherItemTextViewAppearance"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="-1dp"
+        android:layout_toLeftOf="@+id/iv_icon"
+        android:text="官方SDK和DEMO作为参考或示例，请商户在使用过程中，要专业技术人员指导使用，注意系统兼容性。因为没正确使用参考范例"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1"
+        android:layout_below="@+id/iv_icon"
+
+        android:background="@color/stock" />
+
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_line"
+        android:layout_alignStart="@+id/tv_question"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="15dp"
+        android:text="立即查看"
+        android:textSize="14sp" />
+
+
+
+</RelativeLayout>

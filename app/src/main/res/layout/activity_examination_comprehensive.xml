@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f6f6f6"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_title"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--所得税评估-->
+            <FrameLayout
+                android:id="@+id/fl_assess_income_tax"
+                style="@style/fl_analyze">
+
+                <TextView
+                    style="@style/analyze_text"
+                    android:text="@string/assess_income_tax" />
+
+                <ImageView
+                    style="@style/analyze_imageview"
+                    android:src="@drawable/ic_assess_income_tax" />
+
+            </FrameLayout>
+
+            <!--增值评估-->
+            <FrameLayout
+                android:id="@+id/fl_assess_vat"
+                style="@style/fl_analyze">
+
+                <TextView
+                    style="@style/analyze_text"
+                    android:text="@string/assess_vat" />
+
+                <ImageView
+                    style="@style/analyze_imageview"
+                    android:src="@drawable/ic_assess_vat" />
+
+            </FrameLayout>
+
+            <!--印花税-->
+            <FrameLayout
+                android:id="@+id/fl_assess_stamp"
+                style="@style/fl_analyze">
+
+                <TextView
+                    style="@style/analyze_text"
+                    android:text="@string/assess_stamp" />
+
+                <ImageView
+                    style="@style/analyze_imageview"
+                    android:src="@drawable/ic_assess_stamp" />
+
+            </FrameLayout>
+
+            <!--收入-->
+            <FrameLayout
+                android:id="@+id/fl_assess_income"
+                style="@style/fl_analyze">
+
+                <TextView
+                    style="@style/analyze_text"
+                    android:text="@string/assess_income" />
+
+                <ImageView
+                    style="@style/analyze_imageview"
+                    android:src="@drawable/ic_assess_income" />
+
+            </FrameLayout>
+
+            <!--成本-->
+            <FrameLayout
+                android:id="@+id/fl_assess_cost"
+                style="@style/fl_analyze">
+
+                <TextView
+                    style="@style/analyze_text"
+                    android:text="@string/assess_cost" />
+
+                <ImageView
+                    style="@style/analyze_imageview"
+                    android:src="@drawable/ic_assess_cost" />
+
+            </FrameLayout>
+
+            <!--费用-->
+            <FrameLayout
+
+                android:id="@+id/fl_assess_fee"
+                style="@style/fl_analyze">
+
+                <TextView
+                    style="@style/analyze_text"
+                    android:text="@string/assess_fee" />
+
+                <ImageView
+                    style="@style/analyze_imageview"
+                    android:src="@drawable/ic_assess_fee" />
+
+            </FrameLayout>
+
+            <!--利润-->
+            <FrameLayout
+                android:id="@+id/fl_assess_profit"
+                style="@style/fl_analyze">
+
+                <TextView
+                    style="@style/analyze_text"
+                    android:text="@string/assess_profit" />
+
+                <ImageView
+                    style="@style/analyze_imageview"
+                    android:src="@drawable/ic_assess_profit" />
+
+            </FrameLayout>
+
+            <!--资产-->
+            <FrameLayout
+                android:id="@+id/fl_assess_assets"
+                style="@style/fl_analyze">
+
+                <TextView
+                    style="@style/analyze_text"
+                    android:text="@string/assess_assets" />
+
+                <ImageView
+                    style="@style/analyze_imageview"
+                    android:src="@drawable/ic_assess_assets" />
+
+            </FrameLayout>
+            <!--全面分析-->
+            <FrameLayout
+                android:id="@+id/fl_analyze_all"
+                style="@style/fl_analyze"
+                android:layout_marginBottom="@dimen/dimen_50">
+
+                <TextView
+                    style="@style/analyze_text"
+                    android:text="@string/analyze_all" />
+
+                <ImageView
+                    style="@style/analyze_imageview"
+                    android:src="@drawable/ic_analyze_all" />
+
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

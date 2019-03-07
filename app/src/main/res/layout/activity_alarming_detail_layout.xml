@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/bar_title"
+        layout="@layout/activity_title"></include>
+    <TextView
+        android:id="@+id/tv_alarming_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="start"
+        android:layout_below="@+id/bar_title"
+        android:layout_marginLeft="@dimen/dimen_20"
+        android:layout_marginRight="@dimen/dimen_20"
+        android:textSize="16sp"
+        android:text="@string/select_please"
+        android:layout_marginTop="@dimen/dimen_10"></TextView>
+
+
+</RelativeLayout>

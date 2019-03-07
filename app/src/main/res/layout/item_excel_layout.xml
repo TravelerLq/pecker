@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_select_excel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dimen_10"
+    android:layout_marginTop="@dimen/dimen_20"
+    android:layout_marginRight="@dimen/dimen_8"
+    android:background="@drawable/bg_regtangle_grey_xml"
+    android:padding="@dimen/dimen_1"
+    android:paddingBottom="@dimen/dimen_5">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/dimen_50"
+        android:layout_height="@dimen/dimen_70"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dimen_5"
+        android:src="@drawable/ic_xls" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/iv_icon"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/FileSearcherItemTextViewAppearance"
+
+            android:text="@string/search"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_file_detail"
+            style="@style/FileSearcherItemTextViewAppearance"
+            android:text="2.13mb,2017.10.31" />
+
+        <TextView
+            android:id="@+id/tv_file_path"
+            style="@style/FileSearcherItemTextViewAppearance"
+            android:text="C:\document\国祚密码.text" />
+    </LinearLayout>
+
+
+</RelativeLayout>

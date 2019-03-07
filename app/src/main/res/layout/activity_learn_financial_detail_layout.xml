@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/includeTitleLayout"
+        layout="@layout/activity_title"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dimen_48"
+        android:layout_alignParentTop="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_40"
+        android:paddingLeft="@dimen/dimen_10"
+        android:paddingRight="@dimen/dimen_10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_word_title"
+                style="@style/feedback_textview_style"
+                android:layout_gravity="center_horizontal"
+                android:text="无形资产" />
+
+            <ImageView
+                android:id="@+id/iv_word_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_100"
+                android:background="@color/gray_F8F8F8"
+                android:padding="@dimen/dimen_15"
+                android:src="@drawable/ic_image" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:textSize="16sp"
+                android:text="@string/word_explain"/>
+            <TextView
+                android:id="@+id/tv_word_explain"
+                style="@style/feedback_textview_style"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="@dimen/dimen_2"
+                android:text="@string/word_explain_conent" />
+
+            <TextView
+                android:id="@+id/tv_word_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:paddingRight="@dimen/dimen_1"
+                android:text="----出自维基百科"
+                android:textSize="10sp" />
+
+
+            <TextView
+                android:id="@+id/tv_upload_vedio"
+                style="@style/btn_sure_pecker"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:background="@color/blue_46aced"
+                android:text="@string/upload_vedio" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_2"
+                android:layout_marginTop="@dimen/dimen_50"
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:background="@drawable/bg_dash_line" />
+
+            <!--视频-->
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleview_vedio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

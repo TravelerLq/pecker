@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f7f7f7"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_title"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_15"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_15"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_analyze_first"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10">
+
+                <TextView
+                    android:id="@+id/tv_analyze_title_first"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_2"
+                    android:text="@string/upload_income_tax_annex"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_analyze_submit_first"
+                    style="@style/textview_upload_sheet"
+                    android:layout_below="@+id/tv_analyze_title_first"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/tv_state_first"
+                    style="@style/textview_unsubmit"
+                    android:layout_below="@+id/tv_analyze_title_first"
+                    android:layout_toRightOf="@+id/tv_analyze_submit_first"
+                    android:layout_alignBaseline="@+id/tv_analyze_submit_first"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_analyze_second"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_analyze_title_second"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_2"
+                    android:text="@string/upload_vat_annex"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_analyze_submit_second"
+                    style="@style/textview_upload_sheet"
+                    android:layout_below="@+id/tv_analyze_title_second"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_10" />
+
+                <TextView
+                    android:id="@+id/tv_state_second"
+                    style="@style/textview_unsubmit"
+                    android:layout_below="@+id/tv_analyze_title_second"
+                    android:layout_toRightOf="@+id/tv_analyze_submit_second"
+                    android:layout_alignBaseline="@+id/tv_analyze_submit_second"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_analyze_third"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_analyze_title_third"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_2"
+                    android:text="@string/upload_assets_balance_sheet"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_analyze_submit_third"
+                    style="@style/textview_upload_sheet"
+                    android:layout_below="@+id/tv_analyze_title_third"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_10" />
+
+                <TextView
+                    android:id="@+id/tv_state_third"
+                    style="@style/textview_unsubmit"
+                    android:layout_below="@+id/tv_analyze_title_third"
+                    android:layout_toRightOf="@+id/tv_analyze_submit_third"
+                    android:layout_alignBaseline="@+id/tv_analyze_submit_third"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_analyze_fourth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_analyze_title_fourth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_2"
+                    android:text="@string/upload_profit"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_analyze_submit_fourth"
+                    style="@style/textview_upload_sheet"
+                    android:layout_below="@+id/tv_analyze_title_fourth"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_10" />
+
+                <TextView
+                    android:id="@+id/tv_state_fourth"
+                    style="@style/textview_unsubmit"
+                    android:layout_below="@+id/tv_analyze_title_fourth"
+                    android:layout_toRightOf="@+id/tv_analyze_submit_fourth"
+                    android:layout_alignBaseline="@+id/tv_analyze_submit_fourth"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/tv_before_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_25"
+                android:layout_marginBottom="@dimen/dimen_15"
+                android:background="@drawable/bg_regtangle_white_xml"
+                android:drawableRight="@drawable/ic_arrow_down"
+                android:drawablePadding="@dimen/dimen_2"
+                android:padding="@dimen/dimen_10"
+                android:paddingRight="@dimen/dimen_28"
+                android:text="@string/before_info" />
+
+
+            <LinearLayout
+                android:id="@+id/ll_tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_tab_year"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dimen_40"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/before_year" />
+
+
+                    <TextView
+                        android:id="@+id/tv_tab_month"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dimen_40"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/before_month" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"></FrameLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_save"
+                style="@style/btn_sure_pecker"
+                android:layout_marginBottom="@dimen/dimen_30"
+                android:background="@drawable/btn_green"
+                android:text="@string/alarming_analyze" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

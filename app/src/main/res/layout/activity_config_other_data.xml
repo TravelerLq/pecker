@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f7f7f7"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_title"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_15"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_15"
+            android:orientation="vertical">
+
+            <!--销项税额-->
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/total_tax_sale" />
+
+            <EditText
+                android:id="@+id/edt_total_tax_sale"
+                style="@style/edt_config_sheet_data" />
+
+
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/total_tax_import" />
+
+            <EditText
+                android:id="@+id/edt_total_tax_import"
+                style="@style/edt_config_sheet_data" />
+
+
+            <!--ying-->
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/total_tax_payable" />
+
+            <EditText
+                android:id="@+id/edt_total_tax_payable"
+                style="@style/edt_config_sheet_data" />
+
+
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/total_tax_sale_by_applicability_rate" />
+
+            <EditText
+                android:id="@+id/edt_total_applicability_rate"
+                style="@style/edt_config_sheet_data" />
+
+            <!--简易方法-->
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/total_tax_sale_by_simple" />
+
+            <EditText
+                android:id="@+id/edt_total_tax_sale_by_simple"
+                style="@style/edt_config_sheet_data" />
+
+
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/total_tax_sale_export" />
+
+            <EditText
+                android:id="@+id/edt_total_tax_sale_export"
+                style="@style/edt_config_sheet_data" />
+
+
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/total_tax_sale_free" />
+
+            <EditText
+                android:id="@+id/edt_total_tax_sale_free"
+
+                style="@style/edt_config_sheet_data" />
+
+
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/total_tax_tansport_entry" />
+
+            <EditText
+                android:id="@+id/edt_total_tax_tansport_entry"
+                style="@style/edt_config_sheet_data" />
+
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/cost_industry_all_city" />
+
+            <EditText
+                android:id="@+id/edt_cost_industry"
+
+                style="@style/edt_config_sheet_data" />
+
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/main_business_average_fee" />
+
+            <EditText
+                android:id="@+id/edt_main_business_average"
+                style="@style/edt_config_sheet_data" />
+
+
+            <TextView
+                android:id="@+id/tv_sure"
+                style="@style/btn_sure_pecker"
+                android:layout_marginBottom="@dimen/dimen_30"
+                android:background="@drawable/btn_green"
+                android:text="@string/sure" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

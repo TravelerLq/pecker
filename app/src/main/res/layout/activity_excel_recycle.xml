@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f0f0f3">
+
+    <android.support.v7.widget.Toolbar
+        android:id='@+id/file_searcher_main_toolbar'
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_60"
+        android:background="?attr/colorPrimary"
+        app:title="@string/search"
+        app:contentInsetStartWithNavigation="0dp"
+        app:titleTextAppearance="@style/FileSearcherToolbarTitleAppearance"
+        app:subtitle="searching"
+        app:subtitleTextAppearance="@style/FileSearcherToolbarSubtitleAppearance">
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id='@+id/file_searcher_main_no_result_found'
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/file_searcher_no_result_found"
+        android:visibility="gone"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle_excel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/file_searcher_main_toolbar"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:minHeight="@dimen/dimen_300" />
+
+
+</RelativeLayout>

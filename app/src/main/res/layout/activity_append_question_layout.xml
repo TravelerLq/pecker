@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/bar_title"
+        layout="@layout/activity_title"></include>
+    <EditText
+        android:id="@+id/edt_question_append"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_170"
+        android:gravity="start"
+        android:layout_below="@+id/bar_title"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:hint="@string/input_consult_content"></EditText>
+
+    <TextView
+        android:id="@+id/tv_sure"
+        style="@style/btn_sure_pecker"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dimen_10"/>
+
+</RelativeLayout>

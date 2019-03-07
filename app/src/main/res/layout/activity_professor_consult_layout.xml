@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_F8F8F8"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/includeTitleLayout"
+        layout="@layout/activity_title"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dimen_48"
+        android:layout_alignParentTop="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_40"
+        android:paddingLeft="@dimen/dimen_10"
+        android:paddingRight="@dimen/dimen_10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/feedBackTimeTxt"
+                style="@style/black_middle_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:paddingBottom="@dimen/dimen_8"
+                android:text="时间：2018-7-10"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/feedBackThemeEdit"
+                style="@style/feedback_textview_style"
+                android:text="@string/consult_problem_title" />
+
+            <EditText
+                android:id="@+id/edt_inuput_problem"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_160"
+                android:background="@drawable/shape_feed_back_cornor_rectangle"
+                android:gravity="left"
+                android:hint="@string/input_consult_content"
+                android:paddingLeft="@dimen/dimen_5"
+                android:paddingTop="@dimen/dimen_5" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_26"
+                android:background="@drawable/bg_regtangle_white_xml"
+                android:paddingRight="@dimen/dimen_10">
+
+                <TextView
+                    android:id="@+id/tv_pictures_title"
+                    style="@style/feedback_textview_style"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/feedback_pictures" />
+
+                <TextView
+                    android:id="@+id/tv_pictures_limit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="0/10"
+                    android:textColor="@color/grey_b0b0b0" />
+
+                <GridView
+                    android:id="@+id/grid_view_pics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_pictures_title"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginBottom="@dimen/dimen_10"
+                    android:horizontalSpacing="@dimen/dimen_5"
+                    android:numColumns="3"
+                    android:visibility="visible"
+                    android:verticalSpacing="@dimen/dimen_5" />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/tv_tel_title"
+                style="@style/feedback_textview_style"
+                android:visibility="gone"
+                android:text="联系电话" />
+
+            <EditText
+                android:id="@+id/edt_tel"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_35"
+                android:layout_below="@+id/tv_tel_title"
+                android:background="@drawable/bg_regtangle_white_xml"
+                android:gravity="center_vertical"
+                android:hint="@string/feedback_tel_hint"
+                android:paddingLeft="@dimen/dimen_4"
+                android:visibility="gone"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_pay"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:background="@color/green"
+                android:text="@string/pay_weixin" />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

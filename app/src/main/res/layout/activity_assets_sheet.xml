@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f7f7f7"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_title"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_15"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_15"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_2"
+                android:text="@string/input_three_year_assets_number"
+                android:textSize="18sp" />
+
+            <!--一期期初/末资产总额-->
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/begin_of_year_one" />
+
+            <EditText
+                android:id="@+id/edt_assets_total_begin_first"
+                style="@style/edt_config_sheet_data" />
+
+
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/end_of_year_one" />
+
+            <EditText
+                android:id="@+id/edt_assets_total_end_first"
+                style="@style/edt_config_sheet_data" />
+
+
+            <!--二期期初/末资产总额-->
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/begin_of_year_two" />
+
+            <EditText
+                android:id="@+id/edt_assets_total_begin_second"
+                style="@style/edt_config_sheet_data" />
+
+
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/end_of_year_two" />
+
+            <EditText
+                android:id="@+id/edt_assets_total_end_second"
+                style="@style/edt_config_sheet_data" />
+
+            <!--三期期初/末资产总额-->
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/begin_of_year_three" />
+
+            <EditText
+                android:id="@+id/edt_assets_total_begin_thrird"
+                style="@style/edt_config_sheet_data" />
+
+
+            <TextView
+                style="@style/text_config_sheet_data"
+                android:text="@string/end_of_year_three" />
+
+            <EditText
+                android:id="@+id/edt_assets_total_end_thrid"
+                style="@style/edt_config_sheet_data" />
+
+            <TextView
+                android:id="@+id/tv_save"
+                style="@style/btn_sure_pecker"
+                android:layout_marginBottom="@dimen/dimen_30"
+                android:background="@drawable/btn_green"
+                android:text="@string/save" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

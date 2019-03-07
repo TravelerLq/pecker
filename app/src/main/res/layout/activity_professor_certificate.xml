@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_title"></include>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_2"
+        android:layout_marginTop="@dimen/dimen_1"
+        android:background="@color/stock" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimen_5">
+
+                <TextView
+                    style="@style/textview_vip_register"
+                    android:layout_weight="1"
+                    android:text="@string/name" />
+
+                <EditText
+                    android:id="@+id/edt_name"
+                    style="@style/textview_vip_register"
+                    android:layout_weight="1.6"
+                    android:background="@null"
+                    android:hint="@string/name_input" />
+            </LinearLayout>
+
+            <TextView style="@style/textview_line" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimen_5">
+
+                <TextView
+                    style="@style/textview_vip_register"
+                    android:layout_weight="1"
+                    android:text="@string/certificate_no" />
+
+                <EditText
+                    android:id="@+id/edt_title_no"
+                    style="@style/textview_vip_register"
+                    android:layout_weight="1.6"
+                    android:background="@null"
+                    android:hint="@string/certificate_no_input"
+                    android:padding="@dimen/dimen_5" />
+            </LinearLayout>
+
+
+            <TextView style="@style/textview_line" />
+
+
+            <!--年龄-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimen_5">
+
+                <TextView
+                    style="@style/textview_vip_register"
+                    android:layout_weight="1"
+                    android:text="@string/age" />
+
+                <EditText
+                    android:id="@+id/edt_age"
+                    style="@style/textview_vip_register"
+                    android:layout_weight="1.6"
+                    android:background="@null"
+                    android:hint="@string/age_input"
+                    android:inputType="number"
+                    android:textColor="@color/grey_868686" />
+            </LinearLayout>
+
+            <TextView style="@style/textview_line" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimen_5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/dimen_5"
+                    android:text="@string/area_good_at" />
+
+                <EditText
+                    android:id="@+id/edt_good_at"
+                    style="@style/textview_vip_register"
+                    android:layout_weight="1.6"
+                    android:background="@null"
+                    android:hint="@string/area_good_at_input" />
+            </LinearLayout>
+
+            <TextView style="@style/textview_line" />
+
+            <!--所得税征收方式-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimen_5">
+
+                <TextView
+                    style="@style/textview_vip_register"
+                    android:layout_weight="1"
+                    android:text="@string/sex" />
+
+                <TextView
+                    android:id="@+id/tv_select_sex"
+                    style="@style/textview_vip_register"
+                    android:layout_weight="1.6"
+                    android:drawableRight="@drawable/ic_arrow_down"
+                    android:text="@string/sex_input"
+                    android:textColor="@color/grey_868686" />
+            </LinearLayout>
+
+            <TextView style="@style/textview_line" />
+
+            <!--行业分类-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimen_5">
+
+                <TextView
+                    style="@style/textview_vip_register"
+                    android:layout_weight="1"
+                    android:text="@string/title" />
+
+                <EditText
+                    android:id="@+id/edt_title"
+                    style="@style/textview_vip_register"
+                    android:layout_weight="1.6"
+                    android:background="@null"
+                    android:hint="@string/title_input"
+                    />
+            </LinearLayout>
+
+            <TextView style="@style/textview_line" />
+            <!--银行卡-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimen_5">
+
+                <TextView
+                    style="@style/textview_vip_register"
+                    android:layout_weight="1"
+                    android:text="@string/bank_no" />
+
+                <EditText
+                    android:id="@+id/edt_bank_account"
+                    style="@style/textview_vip_register"
+                    android:layout_weight="1.6"
+                    android:background="@null"
+                    android:inputType="number"
+                    android:text="@string/bank_no_input"
+                    android:textColor="@color/grey_868686" />
+            </LinearLayout>
+
+            <TextView style="@style/textview_line" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_5"
+                android:padding="@dimen/dimen_15"
+                android:text="@string/experience" />
+
+            <com.yuas.pecker.view.CountEditText
+                android:id="@+id/edt_experient"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_220"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_15"
+                android:layout_marginBottom="@dimen/dimen_20"></com.yuas.pecker.view.CountEditText>
+
+            <TextView
+                android:id="@+id/tv_sure"
+                style="@style/btn_sure_pecker"
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:text="@string/sure" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

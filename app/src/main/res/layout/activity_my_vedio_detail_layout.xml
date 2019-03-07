@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/bar_title"
+        layout="@layout/activity_title"></include>
+
+
+    <FrameLayout
+        android:id="@+id/fl_my_vedio_thumnail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bar_title"
+        android:layout_margin="@dimen/dimen_20">
+
+        <ImageView
+            android:id="@+id/iv_vedio_image_thumnail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_100"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_image"></ImageView>
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_player" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_delete"
+        style="@style/btn_sure_pecker"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dimen_20"
+        android:background="@drawable/bg_pass_rounded_rectangle"
+        android:text="@string/delete"
+        android:textColor="@color/black" />
+</RelativeLayout>

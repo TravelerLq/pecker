@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bnb="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/includeTitleLayout"
+        layout="@layout/activity_title"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dimen_48"
+
+        android:layout_alignParentTop="true" />
+
+    <FrameLayout
+        android:id="@+id/search_edit_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dimen_56"
+        android:layout_below="@+id/includeTitleLayout"
+        ></FrameLayout>
+
+    <!--android:background="#f2f2f2"-->
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_58"
+        android:layout_alignParentBottom="true"
+        android:background="#f2f2f2"
+        android:orientation="horizontal">
+
+        <com.yuas.pecker.view.BottomNavigationItem
+            android:id="@+id/bni1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            bnb:color="@color/blue_bottom_select_icon"
+            bnb:click_text_color="@color/gree_bottom_select_text"
+            bnb:src="@drawable/ic_pecker_unselect"
+            bnb:text="@string/pecker" />
+
+        <com.yuas.pecker.view.BottomNavigationItem
+            android:id="@+id/bni2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            bnb:color="@color/blue_bottom_select_icon"
+            bnb:click_text_color="@color/gree_bottom_select_text"
+            bnb:src="@drawable/ic_qa_unselect"
+            bnb:text="@string/consult_result" />
+
+        <com.yuas.pecker.view.BottomNavigationItem
+            android:id="@+id/bni3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            bnb:color="@color/blue_bottom_select_icon"
+            bnb:click_text_color="@color/gree_bottom_select_text"
+            bnb:src="@drawable/menu_3"
+            bnb:text="@string/alarm" />
+
+        <com.yuas.pecker.view.BottomNavigationItem
+            android:id="@+id/bni4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            bnb:color="@color/blue_bottom_select_icon"
+            bnb:click_text_color="@color/gree_bottom_select_text"
+            bnb:src="@drawable/menu_4"
+            bnb:text="@string/mine" />
+    </LinearLayout>
+</RelativeLayout>

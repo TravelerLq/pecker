@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimen_15">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen_5"
+            android:text="@string/tel" />
+
+        <EditText
+            android:id="@+id/edt_tel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.6"
+            android:background="@null"
+            android:hint="@string/tel_input"
+            android:padding="@dimen/dimen_5" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_2"
+        android:layout_marginTop="@dimen/dimen_5"
+        android:background="@color/stock" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimen_15">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen_5"
+            android:text="@string/psw" />
+
+        <EditText
+            android:id="@+id/edt_psw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.6"
+            android:background="@null"
+            android:hint="@string/psw_input"
+            android:padding="@dimen/dimen_5" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_2"
+        android:layout_marginTop="@dimen/dimen_5"
+        android:background="@color/stock" />
+
+
+    <TextView
+        android:id="@+id/tv_professor_certificate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:text="@string/professor_certifi"
+        android:textColor="@color/blue_46aced" />
+
+    <TextView
+        android:id="@+id/tv_vip_login"
+        style="@style/btn_sure_pecker"
+        android:text="@string/login" />
+
+    <TextView
+        android:id="@+id/tv_visitor_login"
+        style="@style/btn_sure_pecker"
+        android:text="@string/visitor_login" />
+
+</LinearLayout>

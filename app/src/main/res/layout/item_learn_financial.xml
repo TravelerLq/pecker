@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!--balance sheet-->
+    <FrameLayout
+        android:id="@+id/fl_learn"
+        style="@style/fl_analyze">
+
+        <TextView
+            android:id="@+id/tv_learn_title"
+            style="@style/analyze_text"
+            android:text="@string/balance_sheet" />
+
+        <ImageView
+            style="@style/analyze_imageview"
+            android:src="@drawable/ic_assess_income_tax" />
+
+    </FrameLayout>
+
+</LinearLayout>

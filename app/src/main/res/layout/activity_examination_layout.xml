@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:background="#f6f6f6">
+
+    <include layout="@layout/activity_title"
+        ></include>
+
+    <LinearLayout style="@style/ll_pecker_exam">
+
+        <EditText
+            android:id="@+id/edt_interest_start"
+            style="@style/pecker_exam_edt"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:hint="@string/total_interest_start" />
+
+        <EditText
+            android:id="@+id/edt_interest_end"
+            style="@style/pecker_exam_edt"
+            android:hint="@string/total_interest_end" />
+    </LinearLayout>
+
+
+    <!--本年度净利润本期数-->
+    <EditText
+        android:id="@+id/edt_net_profit"
+        style="@style/smaller_text_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_38"
+        android:layout_marginTop="@dimen/dimen_17"
+        android:hint="@string/net_profit_current"
+        android:layout_marginLeft="@dimen/dimen_7"
+        android:layout_marginRight="@dimen/dimen_7"
+        android:inputType="numberDecimal|number" />
+
+    <!--本/上 年度主营业务收入-->
+    <LinearLayout style="@style/ll_pecker_exam">
+
+        <EditText
+            android:id="@+id/edt_current_income"
+            style="@style/pecker_exam_edt"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:hint="@string/current_main_business_income" />
+
+        <EditText
+            android:id="@+id/edt_last_income"
+            style="@style/pecker_exam_edt"
+            android:hint="@string/last_main_business_income" />
+    </LinearLayout>
+
+    <!--本/上 年度主营业务成本-->
+    <LinearLayout style="@style/ll_pecker_exam">
+
+        <EditText
+            android:id="@+id/edt_current_cost"
+            style="@style/pecker_exam_edt"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:hint="@string/current_main_business_cost" />
+
+        <EditText
+            android:id="@+id/edt_last_cost"
+            style="@style/pecker_exam_edt"
+            android:hint="@string/last_main_business_cost" />
+    </LinearLayout>
+
+
+    <!--本/上 年度应纳所得税额-->
+    <LinearLayout style="@style/ll_pecker_exam">
+
+        <EditText
+            android:id="@+id/edt_current_income_tax"
+            style="@style/pecker_exam_edt"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:hint="@string/current_pay_income_tax" />
+
+        <EditText
+            android:id="@+id/edt_last_income_tax"
+            style="@style/pecker_exam_edt"
+            android:hint="@string/last_pay_income_tax" />
+    </LinearLayout>
+
+
+    <!--本/上 年度进项税额-->
+    <LinearLayout style="@style/ll_pecker_exam">
+
+        <EditText
+            android:id="@+id/edt_current_import_tax"
+            style="@style/pecker_exam_edt"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:hint="@string/current_import_tax" />
+
+        <EditText
+            android:id="@+id/edt_last_import_tax"
+            style="@style/pecker_exam_edt"
+            android:hint="@string/last_import_tax" />
+    </LinearLayout>
+
+
+    <!--本/上 年度销项税额-->
+    <LinearLayout style="@style/ll_pecker_exam">
+
+        <EditText
+            android:id="@+id/edt_current_sale_tax"
+            style="@style/pecker_exam_edt"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:hint="@string/current_sale_tax" />
+
+        <EditText
+            android:id="@+id/edt_last_sale_tax"
+            style="@style/pecker_exam_edt"
+            android:hint="@string/last__sale_tax" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_sure"
+        style="@style/btn_sure_pecker" />
+
+</LinearLayout>

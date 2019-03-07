@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+  >
+
+    <include
+        android:id="@+id/includeTitleLayout"
+        layout="@layout/activity_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_48" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:paddingLeft="@dimen/dimen_10"
+            android:paddingRight="@dimen/dimen_10"
+            android:orientation="vertical">
+
+            <!--联系人-->
+            <LinearLayout
+                style="@style/other_modify_parent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <TextView
+                    style="@style/other_modify_textview"
+                    android:text="@string/contact" />
+
+                <EditText
+                    android:id="@+id/edt_contact"
+                    style="@style/other_modify_edt"
+                    android:hint="@string/contact" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="@color/stock" />
+            <!--联系方式-->
+            <LinearLayout
+                style="@style/other_modify_parent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <TextView
+                    style="@style/other_modify_textview"
+                    android:text="@string/contact_way" />
+
+                <EditText
+                    android:id="@+id/edt_phone"
+                    style="@style/other_modify_edt"
+                    android:inputType="number"
+                    android:hint="@string/contact_way" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="@color/stock" />
+
+            <!-- 企业注册所在地  -->
+            <LinearLayout
+                style="@style/other_modify_parent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/other_modify_textview"
+                    android:text="@string/address_register" />
+
+                <EditText
+                    android:id="@+id/edt_register_address"
+                    style="@style/other_modify_edt"
+                    android:hint="@string/address_register" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="@color/stock" />
+            <!-- 企业经营地址  -->
+            <LinearLayout
+                style="@style/other_modify_parent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/other_modify_textview"
+                    android:text="@string/address_manage" />
+
+                <EditText
+                    android:id="@+id/edt_address_manage"
+                    style="@style/other_modify_edt"
+                    android:hint="@string/address_manage"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="@color/stock" />
+
+            <!--性质-->
+            <LinearLayout
+                style="@style/other_modify_parent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/other_modify_textview"
+                    android:text="@string/company_nature" />
+
+                <TextView
+                    android:id="@+id/tv_company_nature"
+                    style="@style/textview_custom_detail"
+                    android:text="@string/select_please"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="@color/stock" />
+
+
+            <!--/增值税征收方式 vat_coll-->
+            <LinearLayout
+                style="@style/other_modify_parent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/other_modify_textview"
+                    android:text="@string/company_vat_way" />
+
+                <TextView
+                    android:id="@+id/tv_company_vat"
+                    style="@style/textview_custom_detail"
+                    android:text="@string/select_please" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="@color/stock" />
+
+            <!--所得税征收方式income_tax_coll -->
+            <LinearLayout
+                style="@style/other_modify_parent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/other_modify_textview"
+                    android:text="@string/company_income_way" />
+
+                <TextView
+                    android:id="@+id/tv_company_income"
+                    style="@style/textview_custom_detail"
+                    android:text="@string/select_please" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="@color/stock" />
+
+            <!--行业分类 -->
+            <LinearLayout
+                style="@style/other_modify_parent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <TextView
+                    style="@style/other_modify_textview"
+                    android:text="@string/industry_type" />
+
+                <TextView
+                    android:id="@+id/tv_industry_select"
+                    style="@style/textview_custom_detail"
+                    android:text="@string/select_please" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_sure"
+        style="@style/btn_sure_pecker"
+        android:text="@string/apply_sure" />
+</LinearLayout>

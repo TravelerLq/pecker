@@ -1,0 +1,217 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/activity_title" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tv_question_details_reply"
+        android:layout_below="@id/toolbar"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_question_details_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_b5b5"
+                android:gravity="center_vertical"
+                android:minHeight="36dp"
+                android:paddingStart="@dimen/dimen_8"
+                android:paddingEnd="@dimen/dimen_16"
+                android:text="问题"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/tv_question_details_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_8"
+                android:text="what i question is why i can not get better ?yes ,you need to do a lot"
+                android:textSize="16sp" />
+
+            <GridView
+                android:id="@+id/grid_view_pics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="3"></GridView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_8">
+
+                <ImageView
+                    android:id="@+id/img_question_details_icon"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_default_user_circle" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_8"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dimen_8"
+                    android:layout_toRightOf="@id/img_question_details_icon"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_question_details_quizzer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="20dp"
+                        android:text="个人信息已隐藏"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_question_details_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/img_question_details_icon"
+                        android:text="2017年6月1日"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_appends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_b5b5"
+                    android:gravity="center_vertical"
+                    android:minHeight="36dp"
+                    android:paddingLeft="@dimen/dimen_8"
+                    android:paddingRight="@dimen/dimen_16"
+                    android:text="问题追加"
+                    android:textSize="@dimen/font_16" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2.how i insist to learn"
+                    android:textSize="@dimen/font_16"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2.what is the best way to leanrn programming"
+                    android:textSize="@dimen/font_16"
+                    android:visibility="gone" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycle_view_append_problems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_b5b5"
+                android:gravity="center_vertical"
+                android:minHeight="36dp"
+                android:paddingLeft="@dimen/dimen_8"
+                android:paddingRight="@dimen/dimen_16"
+                android:text="问题解答"
+                android:textSize="@dimen/font_16" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_8">
+
+                <ImageView
+                    android:id="@+id/img_answer_icon"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_default_user_circle" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_8"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dimen_8"
+                    android:layout_toRightOf="@id/img_answer_icon"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_answer_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="20dp"
+                        android:text="王教授"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_answer_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/img_question_details_icon"
+                        android:text="@string/area_good_at"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_no_answer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="暂无回复，请耐心等候！"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tv_question_details_reply"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="我要回复"
+        android:textColor="@color/white" />
+</RelativeLayout>
+
