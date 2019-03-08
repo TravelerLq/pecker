@@ -35,6 +35,9 @@ import io.reactivex.Observable;
 public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements AlarmingBeforeYearFragment.FragmentListener,
         AlarmingBeforeMonthNewFragment.FragmentMonthListener {
 
+    /*
+
+     */
 
     @BindView(R.id.ll_tab)
     LinearLayout llTab;

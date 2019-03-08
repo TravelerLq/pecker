@@ -109,6 +109,7 @@ public class MyVedioDetailActivity extends BaseActivity {
                 SimpleToast.toastMessage(getResources().getString(R.string.success), Toast.LENGTH_SHORT);
                 finish();
 
+
             }
 
             @Override

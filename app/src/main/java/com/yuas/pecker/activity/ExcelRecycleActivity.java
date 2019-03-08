@@ -101,6 +101,7 @@ public class ExcelRecycleActivity extends AppCompatActivity {
 
 
         } else {
+
             PermissionsUtil.requestPermission(ExcelRecycleActivity.this, new PermissionListener() {
                         @Override
                         public void permissionGranted(@NonNull String[] permission) {

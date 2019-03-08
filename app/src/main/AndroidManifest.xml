@@ -164,6 +164,18 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
 
-    </application>
+        <!--注册服务-->
+
+        <service
+            android:name=".service.MyIntentService"
+            android:enabled="true"></service>
+
+        <service
+        android:name=".service.NoticeMsgService"
+        android:enabled="true"></service>
+
+
+
+</application>
 
 </manifest>

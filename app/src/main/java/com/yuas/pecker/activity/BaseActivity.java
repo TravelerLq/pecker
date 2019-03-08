@@ -4,9 +4,11 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -40,6 +42,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -61,7 +64,7 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
 
     /**
      * Disposable类:
-     *
+     * <p>
      * dispose():主动解除订阅
      * isDisposed():查询是否解除订阅 true 代表 已经解除订阅
      * CompositeDisposable 可以快速解除所有添加的Disposable类 每当我们得到一个Disposable
@@ -248,7 +251,6 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
     }
 
 
-
     /**
      * 跳转页面
      *
@@ -415,7 +417,7 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
     @Override
     protected void onPause() {
         super.onPause();
-       // MobclickAgent.onPause(BaseActivity.this);
+        // MobclickAgent.onPause(BaseActivity.this);
 
     }
 
@@ -556,8 +558,7 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
     }
 
 
-
-    protected void setVideoThumbnail(File file, ImageView imgVedioThumbnail ) {
+    protected void setVideoThumbnail(File file, ImageView imgVedioThumbnail) {
         Bitmap bitmap = ThumbnailUtils.createVideoThumbnail(file.getAbsolutePath(),
                 MediaStore.Video.Thumbnails.MINI_KIND);
         //获取图片后，压缩成指定大小
@@ -571,5 +572,34 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
         imgVedioThumbnail.setImageBitmap(bitmap);
 
     }
+
+    NoticeBrodcastReceiver receiver =new NoticeBrodcastReceiver();
+
+    //register 广播
+    protected void registerBrodcast() {
+        IntentFilter intentFilter =new IntentFilter();
+        intentFilter.addAction(AppConstant.NOTICE_ACTION);
+        registerReceiver(receiver,intentFilter);
+
+    }
+
+    //接收广播  重写方法  onReceiver()方法（）
+    int num =0;
+    private class NoticeBrodcastReceiver extends BroadcastReceiver {
+  int numInReceiver =0;
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            //onReceiver --
+            num++;
+            numInReceiver++;
+            String msg = intent.getStringExtra("notice");
+            Loger.e("----onReceiver get message form notice service---" + msg);
+            Loger.e("----onReceiver get message  nums=---" + num);
+            Loger.e("----onReceiver num in receiver---" + numInReceiver);
+
+
+        }
+    }
+
 
 }

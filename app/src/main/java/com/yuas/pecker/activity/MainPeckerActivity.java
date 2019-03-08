@@ -12,6 +12,8 @@ import com.yuas.pecker.fragment.AlarmingResultsFragment;
 import com.yuas.pecker.fragment.HomePeckerFragment;
 import com.yuas.pecker.fragment.QuesAnswerFragment;
 import com.yuas.pecker.fragment.UserInfoFragment;
+import com.yuas.pecker.service.MyIntentService;
+import com.yuas.pecker.service.NoticeMsgService;
 import com.yuas.pecker.utils.Loger;
 import com.yuas.pecker.view.BottomNavigationItem;
 
@@ -74,18 +76,38 @@ public class MainPeckerActivity extends BaseActivity {
         data.add(b3);
         data.add(b4);
         setClick(0);
+        initViewEvent();
+
+        //启动intentService
+//        statIntentService();
+        //启动 msg 的Service();
     }
+
+    //启动intentService
+    private void starrtIntentService() {
+        Intent intent = new Intent(MainPeckerActivity.this, MyIntentService.class);
+        startService(intent);
+
+    }
+
 
     @Override
     protected void initViewEvent() {
+        Intent intent = new Intent(MainPeckerActivity.this, NoticeMsgService.class);
+        startService(intent);
+
+        //
+        registerBrodcast();
+
 
     }
 
+   //Broadcast receiver ybuzco
 
     public void startIntentService() {
         // 创建需要启动的IntentService的Intent
-//        Intent intent = new Intent(this, MyIntentService.class);
-//        startService(intent);
+        Intent intent = new Intent(this, MyIntentService.class);
+        startService(intent);
     }
 
     private void getExcel() {
@@ -133,7 +155,6 @@ public class MainPeckerActivity extends BaseActivity {
                 break;
 
 
-
             default:
                 break;
         }
@@ -151,5 +172,7 @@ public class MainPeckerActivity extends BaseActivity {
 
         }
     }
+
+
 
 }
