@@ -50,7 +50,10 @@ public class AppConstant {
 
     //琢税鸟 正式
     private static final String BASE_URL_PECKER = "https://zsn.royalsecurity.cn/";
-    public static final String BASE_URL_PIC="https://cs.royalsecurity.cn/production/";
+    //https://zsn.royalsecurity.cn/dcim/production/
+    // 1552284089669.downloading
+    public static final String BASE_URL_PIC="https://zsn.royalsecurity.cn/dcim/production/";
+
     //琢税鸟 测试
   //  private static final String BASE_URL_PECKER = "http://192.168.31.195:8080/";
 

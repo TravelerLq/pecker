@@ -91,6 +91,7 @@ public class SimpleToast {
 	private static void toastMessage(String tvString, int length, boolean error) {
 		if(TextUtils.isEmpty(tvString)) return; // 空信息不显示
 		try {
+			App.getInstance();
 			View layout = LayoutInflater.from(App.getInstance()).inflate(R.layout.toast_xml, null);
 			TextView text = (TextView) layout.findViewById(R.id.text);
 			if (error){
@@ -103,6 +104,7 @@ public class SimpleToast {
 			toast.setView(layout);
 			toast.show();
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

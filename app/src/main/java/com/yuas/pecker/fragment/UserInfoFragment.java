@@ -9,6 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yuas.pecker.R;
+import com.yuas.pecker.activity.AnalyzeParamsConfigActivity;
+import com.yuas.pecker.activity.MyVedioRecycleActivity;
+import com.yuas.pecker.activity.PeckerAaboutActivity;
+import com.yuas.pecker.activity.ProfessorCertificateActivity;
+import com.yuas.pecker.activity.VipLoginActivity;
 
 
 //琢税鸟 -用户信息
@@ -56,23 +61,23 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-//            case R.id.ll_vip_login:
-//                toActivity(UserInfoFragment.this, VipLoginActivity.class);
-//                break;
-//            case R.id.ll_analyze_params:
-//                toActivity(UserInfoFragment.this, AnalyzeParamsConfigActivity.class);
-//                break;
-//            case R.id.ll_my_vedio:
-//                toActivity(UserInfoFragment.this, MyVedioRecycleActivity.class);
-//                break;
-//            case R.id.ll_expert_certificate:
-//                toActivity(UserInfoFragment.this, ProfessorCertificateActivity.class);
-//              //  getExpertState();
-//
-//                break;
-//            case R.id.ll_about_pecker:
-//                toActivity(UserInfoFragment.this, PeckerAaboutActivity.class);
-//                break;
+            case R.id.ll_vip_login:
+                toActivity(UserInfoFragment.this, VipLoginActivity.class);
+                break;
+            case R.id.ll_analyze_params:
+                toActivity(UserInfoFragment.this, AnalyzeParamsConfigActivity.class);
+                break;
+            case R.id.ll_my_vedio:
+                toActivity(UserInfoFragment.this, MyVedioRecycleActivity.class);
+                break;
+            case R.id.ll_expert_certificate:
+                toActivity(UserInfoFragment.this, ProfessorCertificateActivity.class);
+              //  getExpertState();
+
+                break;
+            case R.id.ll_about_pecker:
+                toActivity(UserInfoFragment.this, PeckerAaboutActivity.class);
+                break;
             case R.id.tv_unlogin:
               UserInfoFragment.this.getActivity().finish();
                 //

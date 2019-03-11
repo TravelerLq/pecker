@@ -87,8 +87,9 @@ public class QueAnswerRecycleAdapter extends RecyclerView.Adapter<QueAnswerRecyc
             holder.tvFileds.setText(goodAt + bean.getTerritory());
             //holder
             //默认图片
+            String urlPic = bean.getImageList().get(0);
             Glide.
-                    with(context).load(baseImageUrl + bean.getPhoto())
+                    with(context).load(baseImageUrl + urlPic)
                     .apply(new RequestOptions().placeholder(R.drawable.ic_image).override(20, 20))
                     .into(holder.ivIcon);
         }

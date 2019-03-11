@@ -34,6 +34,8 @@ import butterknife.BindView;
 import io.reactivex.Observable;
 import me.iwf.photopicker.PhotoPicker;
 
+//微信支付功能暂时不做
+
 public class WeiXinPayActivity extends BaseActivity {
 
     private IWXAPI api;
@@ -64,9 +66,11 @@ public class WeiXinPayActivity extends BaseActivity {
         uploadPicsStr = new ArrayList<>();
         String appId = "wx76b1e1fa9c0b3bd6"; // 填应用AppId: wx76b1e1fa9c0b3bd6
         api = WXAPIFactory.createWXAPI(this, appId);
+        //图片Adapter
         adapter = new GridViewPicsAdapter(WeiXinPayActivity.this, list);
         gridViewPics.setAdapter(adapter);
         tvTitle.setText("专家咨询");
+
         initViewEvent();
 
         if (getIntent() != null) {
@@ -278,7 +282,8 @@ public class WeiXinPayActivity extends BaseActivity {
             public void onNext(Boolean aBoolean) {
                 super.onNext(aBoolean);
                 if (aBoolean) {
-                    SimpleToast.toastMessage(getResources().getString(R.string.success), Toast.LENGTH_SHORT);
+                    Toast.makeText(WeiXinPayActivity.this,getResources().getString(R.string.success),Toast.LENGTH_SHORT).show();
+                 //   SimpleToast.toastMessage(getResources().getString(R.string.success), Toast.LENGTH_SHORT);
                     //付费提交成功--咨询结果 -问答列表
                     toActivity(QueAnswerRecycleViewActivity.class);
                     finish();

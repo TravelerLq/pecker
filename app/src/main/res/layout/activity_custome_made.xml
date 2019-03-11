@@ -18,18 +18,18 @@
         <TextView
             android:id="@+id/tv_consult"
             style="@style/textview_custom"
-            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:background="@drawable/bg_regtangle_grey_xml"
             android:text="@string/consult" />
 
         <TextView
             android:id="@+id/tv_plan"
             style="@style/textview_custom"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:background="@drawable/bg_regtangle_grey_xml"
             android:text="@string/plan" />
 
-        <com.jci.vsd.view.ShapedImageView
+        <com.yuas.pecker.view.ShapedImageView
             android:id="@+id/shape_imageview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         <TextView
             android:id="@+id/tv_audit"
             style="@style/textview_custom"
-            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:background="@drawable/bg_regtangle_grey_xml"
             android:text="@string/audit" />
@@ -53,7 +53,7 @@
         <TextView
             android:id="@+id/tv_accounting"
             style="@style/textview_custom"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:background="@drawable/bg_regtangle_grey_xml"
             android:text="@string/agency_accounting" />

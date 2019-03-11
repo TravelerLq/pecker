@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -85,6 +86,9 @@ public class QueAnsDetailActivity extends BaseActivity {
     private String userId = "24";
     private String questionId = "";
 
+    @BindView(R.id.button_back)
+    ImageButton buttonBack;
+
     @Override
 
     public void onCreate(Bundle savedInstanceState) {
@@ -144,6 +148,8 @@ public class QueAnsDetailActivity extends BaseActivity {
     @Override
     protected void initViewEvent() {
         tvQuestionReply.setOnClickListener(this);
+        buttonBack.setOnClickListener(this);
+
     }
 
     @Override
