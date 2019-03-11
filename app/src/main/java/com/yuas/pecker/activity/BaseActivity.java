@@ -94,7 +94,6 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        App.getInstance();
         App.getInstance().addActivity(this);
         synchronized (mActivities) {
             mActivities.add(this);
@@ -150,6 +149,8 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
         synchronized (mActivities) {
             mActivities.remove(this);
         }
+
+
     }
 
     protected void exit() {
@@ -601,6 +602,8 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
 
         }
     }
+
+
 
 
 }

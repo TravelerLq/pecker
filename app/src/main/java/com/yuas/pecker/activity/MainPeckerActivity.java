@@ -93,6 +93,7 @@ public class MainPeckerActivity extends BaseActivity {
 
     @Override
     protected void initViewEvent() {
+
         Intent intent = new Intent(MainPeckerActivity.this, NoticeMsgService.class);
         startService(intent);
 
@@ -173,6 +174,12 @@ public class MainPeckerActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(receiver);
+//        stopService()
+        super.onDestroy();
 
 
+    }
 }
