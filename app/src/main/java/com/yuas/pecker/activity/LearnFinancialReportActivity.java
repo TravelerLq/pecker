@@ -26,7 +26,7 @@ import java.util.List;
 import butterknife.BindView;
 import io.reactivex.Observable;
 
-//财务报表学习 yiji（数据后台拉取！）
+//财务报表学习（数据后台拉取！）
 
 public class LearnFinancialReportActivity extends BaseActivity {
 
@@ -42,10 +42,9 @@ public class LearnFinancialReportActivity extends BaseActivity {
 
     @BindView(R.id.textview_title)
     TextView tvTitle;
-    private String userId;
     private ReportsNameRecycleAdapter mAdater;
-    private List<LearnFinancialBean> data;
-    private int reportNameId;
+    private List<LearnFinancialBean> data;//报表数据集合
+    private int reportNameId;//点击的item id
 
 
     @Override
@@ -55,21 +54,11 @@ public class LearnFinancialReportActivity extends BaseActivity {
         data = new ArrayList<>();
         initViewEvent();
         tvTitle.setText(getResources().getString(R.string.learn_financial_report));
-        userId = "24";
         // initTestData();
         initRecycleView();
         getData();
     }
 
-    private void initTestData() {
-        LearnFinancialBean bean;
-        for (int i = 0; i < 10; i++) {
-            bean = new LearnFinancialBean();
-            bean.setId(i);
-            bean.setStatementName("reportName" + i);
-            data.add(bean);
-        }
-    }
 
     private void initRecycleView() {
         mAdater = new ReportsNameRecycleAdapter(data);

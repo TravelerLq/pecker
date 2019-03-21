@@ -65,12 +65,6 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
 
 
-        <!--体验体检-->
-        <activity
-            android:name=".activity.ExaminationActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
-
         <!--体检结果-->
         <activity
             android:name=".activity.AlarmResultActivity"
@@ -116,10 +110,6 @@
 
         <activity
             android:name=".activity.ExpertsRecycleViewActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
-        <activity
-            android:name=".activity.LoadMoreActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
         <activity
@@ -191,10 +181,6 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
 
         <!--注册服务-->
-
-        <service
-            android:name=".service.MyIntentService"
-            android:enabled="true"></service>
 
         <service
         android:name=".service.NoticeMsgService"

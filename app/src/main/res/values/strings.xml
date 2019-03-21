@@ -410,6 +410,7 @@
 
     <string name="experts_pictures">图片（问题截图，最多10张）</string>
     <string name="question_answer">问答</string>
+    <string name="question_answer_detail">问答详情</string>
 
 
     <string name="upload_income_tax_annex_without_s">请上传企业所得税纳税申报表及附表</string>

@@ -66,11 +66,11 @@ public class QueAnsDetailActivity extends BaseActivity {
     TextView tvNOAnswer;
     @BindView(R.id.ll_appends)
     LinearLayout llAppends;
-
-
+    @BindView(R.id.textview_title)
+    TextView tvTitle;
     //
     private GridViewPicsShowAdapter adapter;
-    private List<PicBean> listPics = new ArrayList<>();
+    private List<PicBean> listPics = new ArrayList<>();//图片集合
 
     //追加问题 recycleview
     private StringTextOnlyAdapter recycleAppendAdapter;
@@ -84,7 +84,7 @@ public class QueAnsDetailActivity extends BaseActivity {
     private LinearLayoutManager llManagerAnswer;
 
     private String userId = "24";
-    private String questionId = "";
+    private String questionId = "";//问题id
 
     @BindView(R.id.button_back)
     ImageButton buttonBack;
@@ -94,6 +94,7 @@ public class QueAnsDetailActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_que_ans_detail);
+        tvTitle.setText(getResources().getText(R.string.question_answer_detail));
         initViewEvent();
         // initTestData();
         context = QueAnsDetailActivity.this;
@@ -114,19 +115,6 @@ public class QueAnsDetailActivity extends BaseActivity {
 
     }
 
-    String picUrl = "https://images.homedepot-static.com/productImages/612ae505-9daf-45c3-ac16-67f97dcb251d/svn/globalrose-flower-bouquets-prime-100-red-roses-64_1000.jpg";
-
-    private void initTestData() {
-        PicBean picBean;
-        for (int i = 0; i < 4; i++) {
-            picBean = new PicBean();
-            picBean.setPhotoPath(picUrl);
-            listPics.add(picBean);
-            listAnswers.add(i + " answer");
-            listAppends.add(i + "appends");
-
-        }
-    }
 
     private void initRecycleAppend() {
 
@@ -250,32 +238,6 @@ public class QueAnsDetailActivity extends BaseActivity {
     }
 
 
-    //追问回复
 
-    private void appendQuestion(String content) {
-        RequestAppendQueBean bean = new RequestAppendQueBean();
-        bean.setMsgValue(content);
-        bean.setQueId(questionId);
-        bean.setUid(userId);
-        Observable<Boolean> observable = new QuesAnswerControl().appendQuestion(bean);
-        CommonDialogObserver<Boolean> observer = new CommonDialogObserver<Boolean>(this) {
-            @Override
-            public void onNext(Boolean aBoolean) {
-                super.onNext(aBoolean);
-                if (aBoolean) {
-                    SimpleToast.toastMessage(getResources().getString(R.string.success), Toast.LENGTH_SHORT);
-                }
-            }
-
-            @Override
-            public void onError(Throwable t) {
-                super.onError(t);
-                SimpleToast.toastMessage(t.getMessage(), Toast.LENGTH_SHORT);
-
-            }
-        };
-        RxHelper.bindOnUI(observable, observer);
-
-    }
 
 }

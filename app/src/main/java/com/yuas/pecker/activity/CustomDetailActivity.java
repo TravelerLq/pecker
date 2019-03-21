@@ -76,27 +76,23 @@ public class CustomDetailActivity extends BaseActivity {
     TextView tvSure;
 
     CustomMadeRequestBean requestBean;
-    //private String[] customList;
 
-    String select;
-    private List<String> listNature = new ArrayList<>();
-    private List<String> listVatWay = new ArrayList<>();
-    private List<String> listIncomeWay = new ArrayList<>();
+    String select;//请选择str
+    private List<String> listNature = new ArrayList<>(); //公司性质集合
+    private List<String> listVatWay = new ArrayList<>(); //增值税方式集合
+    private List<String> listIncomeWay = new ArrayList<>();//所得税方式集合
 
-    private ArrayList<String> customList = new ArrayList<>();
+    private ArrayList<String> customList = new ArrayList<>();//私人定制项集合
 
-    private List<String> firstIndustry = new ArrayList<>();
-    private List<String> secondIndustry = new ArrayList<>();
+    private List<String> firstIndustry = new ArrayList<>();//第一列的行业集合
+    private List<String> secondIndustry = new ArrayList<>();//第二列的行业集合
 
-    private List<IndustryTypeBean> industryTypeBeanList = new ArrayList<>();
-    private Context context;
+    private List<IndustryTypeBean> industryTypeBeanList = new ArrayList<>();//所有行业的集合
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_detail);
-        context = CustomDetailActivity.this;
         getIndustry();
         select = getResources().getString(R.string.select_please);
         initViewEvent();
@@ -107,19 +103,9 @@ public class CustomDetailActivity extends BaseActivity {
         listNature = Arrays.asList(getResources().getStringArray(R.array.company_type));
         listIncomeWay = Arrays.asList(getResources().getStringArray(R.array.income_tax_way));
         listVatWay = Arrays.asList(getResources().getStringArray(R.array.vat_way));
-        // arrayToList(R.array.company_type, listNature);
-//        arrayToList(R.array.income_tax_way, listIncomeWay);
-//        arrayToList(R.array.vat_way, listVatWay);
 
     }
 
-
-    private void arrayToList(int resId, List<String> list) {
-        Resources res = getResources();
-        //  String[] status = res.getStringArray(R.array.approval_no);
-        String[] status = res.getStringArray(resId);
-        list = Arrays.asList(status);
-    }
 
     @Override
     protected void initViewEvent() {
@@ -131,8 +117,6 @@ public class CustomDetailActivity extends BaseActivity {
         tvSure.setOnClickListener(this);
     }
 
-    //  TimePickerUtils.getInstance().onListDataPicker(this, allStatus, tvProducerOrder);
-    //  TimePickerUtils.getInstance().onListPicker(ProducerAddActivity.this, list, tvProducerOrder);
     @Override
     public void onClick(View view) {
         super.onClick(view);
@@ -359,10 +343,6 @@ public class CustomDetailActivity extends BaseActivity {
 
     }
 
-
-    private String getEdtStr(EditText editText) {
-        return editText.getText().toString();
-    }
 
     //检测返回按钮
 

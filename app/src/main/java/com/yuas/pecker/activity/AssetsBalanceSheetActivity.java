@@ -50,6 +50,7 @@ public class AssetsBalanceSheetActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assets_sheet);
+        tvTitle.setText(getResources().getText(R.string.balance_sheet));
         initViewEvent();
     }
 
@@ -82,8 +83,6 @@ public class AssetsBalanceSheetActivity extends BaseActivity {
         String assetsTotalEndThird = edtAssetsTotalEndThird.getText().toString();
 
         ConfigParamsRequestBean bean = new ConfigParamsRequestBean();
-
-
         Observable<Boolean> observable = new AnalyzeParamsControl().saveCongfigParams(bean);
         CommonDialogObserver<Boolean> observer = new CommonDialogObserver<Boolean>(AssetsBalanceSheetActivity.this) {
             @Override

@@ -560,21 +560,6 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
     }
 
 
-    protected void setVideoThumbnail(File file, ImageView imgVedioThumbnail) {
-        Bitmap bitmap = ThumbnailUtils.createVideoThumbnail(file.getAbsolutePath(),
-                MediaStore.Video.Thumbnails.MINI_KIND);
-        //获取图片后，压缩成指定大小
-        if (bitmap != null) {
-            bitmap = ThumbnailUtils.extractThumbnail(bitmap, 200, 200);
-
-        } else {
-            //加载一个默认图片
-            bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.img_default);
-        }
-        imgVedioThumbnail.setImageBitmap(bitmap);
-
-    }
-
     NoticeBrodcastReceiver receiver =new NoticeBrodcastReceiver();
 
     //register 广播
@@ -585,7 +570,7 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
 
     }
 
-    //接收广播  重写方法  onReceiver()方法（）
+    //接收广播 （消息 有待开发）
     int num =0;
     private class NoticeBrodcastReceiver extends BroadcastReceiver {
   int numInReceiver =0;

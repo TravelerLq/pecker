@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +35,12 @@ import butterknife.BindView;
 import io.reactivex.Observable;
 import me.iwf.photopicker.PhotoPicker;
 
-//微信支付功能暂时不做
+/**
+ * 专家咨询点击进入咨询
+ * 微信支付功能暂时不做
+ */
+
+
 
 public class WeiXinPayActivity extends BaseActivity {
 
@@ -50,12 +56,18 @@ public class WeiXinPayActivity extends BaseActivity {
 
     @BindView(R.id.btn_pay)
     Button btn_pay;
+
+    @BindView(R.id.button_back)
+    ImageButton buttonBack;
+
     private GridViewPicsAdapter adapter;
-    private String answerId = "";
-    private List<PicBean> list;
-    List<String> uploadPicsStr;
-    private ArrayList<String> selectedPhotos = new ArrayList<>();
+    private String answerId = "";//回复人ID
+    private List<PicBean> list;//图片集合
+    List<String> uploadPicsStr;//图片上传success list string
+    private ArrayList<String> selectedPhotos = new ArrayList<>(); //选中的图片集合
     private String userId = "24";
+
+
 
 
     @Override
@@ -80,7 +92,6 @@ public class WeiXinPayActivity extends BaseActivity {
         adapter.setOnItemClickListener(new GridViewPicsAdapter.OnItemClickListener() {
             @Override
             public void addImage(int pos) {
-                SimpleToast.toastMessage("addImage--" + pos, Toast.LENGTH_SHORT);
                 takePics();
 
             }
@@ -153,6 +164,7 @@ public class WeiXinPayActivity extends BaseActivity {
     @Override
     protected void initViewEvent() {
         btn_pay.setOnClickListener(this);
+        buttonBack.setOnClickListener(this);
     }
 
     @Override

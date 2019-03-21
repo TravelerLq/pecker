@@ -62,9 +62,11 @@ public class AnalyzeParamsConfigActivity extends BaseActivity {
                 toActivity(ExperienceDataActivity.class);
                 break;
             case R.id.fl_balace_sheet:
+                //资产负债表
                 toActivity(AssetsBalanceSheetActivity.class);
                 break;
             case R.id.fl_other_data:
+                //其他数据
                 toActivity(ConfigOtherDataActivity.class);
                 break;
             default:

@@ -44,6 +44,10 @@ import io.reactivex.disposables.Disposable;
 
 import static android.app.Activity.RESULT_OK;
 
+/**
+ * 往期年度
+ */
+
 public class AlarmingBeforeYearFragment extends BaseFragment implements DialogObserverHolder, View.OnClickListener {
 
     private static final String TAG = AlarmingBeforeYearFragment.class.getSimpleName();
@@ -60,21 +64,19 @@ public class AlarmingBeforeYearFragment extends BaseFragment implements DialogOb
     TextView tvSubmitFourth;
     TextView tvAnnexSelectYear;
     boolean secondVisibility, thirdVisibility, fourthVisibility = false;
-    private static final int REQUEST_FRAGMENT_UPLOAD = 1019;
-    private int requestCode;
-    private int whitch = -1;
-    private String intentType;
-    private String uploadExcelType;
-    private String uploadTimeType = "3";
+    private static final int REQUEST_FRAGMENT_UPLOAD = 1019; //excel选择后返回码
+    private int whitch = -1;//标志上传excel的位置
+    private String intentType;//activity传入的intent类型
+    private String uploadExcelType;//上传的类型
+    private String uploadTimeType = "3";//表示往期年度
     private String userId = "24";
-    protected List<String> excelsList = new ArrayList<>();
+    protected List<String> excelsList = new ArrayList<>(); //excel集合
     private FragmentListener fragmentListener;
-    private List<String> yearList;
-    private boolean yearSelect = false;
-    private String analyzeType = "";
+    private List<String> yearList;//年份的集合
+    private boolean yearSelect = false;//是否选择了年份
+
 
     public static AlarmingBeforeYearFragment newInstance(String argument) {
-
         AlarmingBeforeYearFragment fragment = new AlarmingBeforeYearFragment();
         Bundle bundle = new Bundle();
         bundle.putString("type", argument);
@@ -115,7 +117,6 @@ public class AlarmingBeforeYearFragment extends BaseFragment implements DialogOb
     }
 
     //根据Activity 传过来的intentType值，来初始化View 的状态
-
 
     private void initViewByType(String intentType) {
         switch (intentType) {

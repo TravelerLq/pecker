@@ -45,8 +45,8 @@ public class LearnFinancialSecondRecActivity extends BaseActivity implements OnR
     @BindView(R.id.textview_title)
     TextView tvTitle;
 
-    private List<WordBean> listResults = new ArrayList<>();
-    private String id;
+    private List<WordBean> listResults = new ArrayList<>();//词条集合
+    private String id;//报表id
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -20,6 +20,9 @@ import com.yuas.pecker.view.widget.SimpleToast;
 import butterknife.BindView;
 import io.reactivex.Observable;
 
+/**
+ * 视频详情
+ */
 public class MyVedioDetailActivity extends BaseActivity {
 
     //视频详情
@@ -38,8 +41,8 @@ public class MyVedioDetailActivity extends BaseActivity {
     ImageView ivVedioImageThumnail;
 
 
-    private int vedioId;
-    private String vedioUrl;
+    private int vedioId;//视频ID
+    private String vedioUrl;//视频url
 
 
     @Override

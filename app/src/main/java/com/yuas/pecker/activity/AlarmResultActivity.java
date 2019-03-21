@@ -16,7 +16,6 @@ import com.yuas.pecker.R;
 import com.yuas.pecker.adapter.StringTextOnlyAdapter;
 import com.yuas.pecker.utils.Loger;
 import com.yuas.pecker.view.LinearLayoutColorDivider;
-import com.yuas.pecker.view.widget.SimpleToast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,17 +26,18 @@ public class AlarmResultActivity extends BaseActivity {
 
     @BindView(R.id.recycle_excel)
     RecyclerView recyclerView;
-    private Context context;
-    private StringTextOnlyAdapter mAdapter;
-    private List<String> listResults = new ArrayList<>();
-    private String[] arrayList;
-
-
     @BindView(R.id.button_back)
     ImageButton buttonBack;
 
     @BindView(R.id.textview_title)
     TextView tvTitle;
+
+    @BindView(R.id.file_searcher_main_no_result_found)
+    TextView tvResult;
+
+    private Context context;
+    private StringTextOnlyAdapter mAdapter;
+    private List<String> listResults = new ArrayList<>();//体检结果集合
 
 
     @Override
@@ -45,7 +45,6 @@ public class AlarmResultActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_recycle);
         context = AlarmResultActivity.this;
-//        list
         listResults = getIntent().getStringArrayListExtra("list");
         Loger.e("--listResults--" + listResults.size());
         // getIntent().getStringArrayExtra("list");
@@ -57,7 +56,11 @@ public class AlarmResultActivity extends BaseActivity {
         initViewEvent();
 
         if (listResults.size() == 0) {
-            SimpleToast.toastMessage(getResources().getString(R.string.health_notice), Toast.LENGTH_SHORT);
+            tvResult.setVisibility(View.VISIBLE);
+            tvResult.setText(getResources().getString(R.string.health_notice));
+
+        }else {
+            tvResult.setVisibility(View.GONE);
         }
 
     }
@@ -70,9 +73,6 @@ public class AlarmResultActivity extends BaseActivity {
 
 
     private void initRecycleView() {
-        //showdialog
-
-
         LinearLayoutManager linearLayoutManager =
                 new LinearLayoutManager(context, LinearLayout.VERTICAL, false);
         linearLayoutManager.setRecycleChildrenOnDetach(false);

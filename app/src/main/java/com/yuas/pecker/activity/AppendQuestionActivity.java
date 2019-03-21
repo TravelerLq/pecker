@@ -20,6 +20,10 @@ import com.yuas.pecker.view.widget.SimpleToast;
 import butterknife.BindView;
 import io.reactivex.Observable;
 
+/**
+ * 回复
+ */
+
 public class AppendQuestionActivity extends BaseActivity {
 
 
@@ -34,7 +38,7 @@ public class AppendQuestionActivity extends BaseActivity {
 
     @BindView(R.id.tv_sure)
     TextView tvSure;
-    private String questionId = "14";
+    private String questionId = "";//回复问题ID
     private String userId = "24";
 
     @Override

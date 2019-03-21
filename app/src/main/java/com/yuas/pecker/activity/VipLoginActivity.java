@@ -17,6 +17,10 @@ import com.yuas.pecker.fragment.VipRegisterFragment;
 
 import butterknife.BindView;
 
+/**
+ * vip登录
+ */
+
 public class VipLoginActivity extends BaseActivity implements ViewPager.OnPageChangeListener, TabLayout.OnTabSelectedListener {
 
 
@@ -32,7 +36,7 @@ public class VipLoginActivity extends BaseActivity implements ViewPager.OnPageCh
     @BindView(R.id.textview_title)
     TextView tvTitle;
     //
-    private String[] tabString = new String[]{"登录", "注册"};
+    private String[] tabString = new String[]{"登录", "注册"}; //tab title string array
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

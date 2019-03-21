@@ -38,12 +38,16 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 
+/**
+ * 咨询结果fragment
+ */
+
 public class QuesAnswerFragment extends BaseFragment implements View.OnClickListener, DialogObserverHolder, OnRefreshListener, OnLoadMoreListener {
     private QueAnswerRecycleAdapter mAdapter;
     SwipeToLoadLayout swipeToLoadLayout;
     private Context context;
-    private String pageSize = "5";
-    private int pageCount = 1;
+    private String pageSize = "5";//一页数据大小
+    private int pageCount = 1;//页下标
     private String userId = "24";
 
     private List<QueAnswerBean> listQueAnswers = new ArrayList<>();

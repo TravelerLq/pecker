@@ -26,8 +26,8 @@ import java.util.List;
 import butterknife.BindView;
 import io.reactivex.Observable;
 
-/*
-专家认证Activity
+/**
+   专家认证Activity
  */
 
 
@@ -66,7 +66,7 @@ public class ProfessorCertificateActivity extends BaseActivity {
     @BindView(R.id.tv_sure)
     TextView tvSure;
     private String userId = "24";
-    private String professorId = "4";
+    private String professorId = "4"; //专家ID
 
 
     @Override

@@ -51,6 +51,7 @@ import static com.yuas.pecker.utils.FileUtils.getRealFilePathFromUri;
 
 /**
  * Created by liqing on 2018/12/6.
+ * 浏览大图
  */
 
 public class ViewBigImageActivity extends BaseActivity {
@@ -70,7 +71,7 @@ public class ViewBigImageActivity extends BaseActivity {
     ImageView ivHeaderBig;
 
 
-    private File tempFile;
+    private File tempFile; //图片文件
 
 
     //请求相机

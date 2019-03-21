@@ -10,6 +10,10 @@ import com.yuas.pecker.R;
 
 import butterknife.BindView;
 
+/**
+ * 预警结果详情
+ */
+
 public class AlarmingDetailActivity extends BaseActivity {
 
     @BindView(R.id.button_back)
@@ -20,7 +24,7 @@ public class AlarmingDetailActivity extends BaseActivity {
 
     @BindView(R.id.tv_alarming_result)
     TextView tvResult;
-    private String resultIntent;
+    private String resultIntent; //预警结果str
 
 
     @Override

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -31,25 +32,27 @@ import java.util.List;
 import butterknife.BindView;
 import io.reactivex.Observable;
 
-//按照类别 启动 预警体验页面
+
+/**
+ * 预警分析
+ *
+ */
 public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements AlarmingBeforeYearFragment.FragmentListener,
         AlarmingBeforeMonthNewFragment.FragmentMonthListener {
 
-    /*
-
-     */
 
     @BindView(R.id.ll_tab)
     LinearLayout llTab;
+    //所得税
     @BindView(R.id.rl_analyze_first)
     RelativeLayout rlAnalyzeFirst;
-
+    //增值税
     @BindView(R.id.rl_analyze_second)
     RelativeLayout rlAnalyzeSecond;
-
+    //资产负债
     @BindView(R.id.rl_analyze_third)
     RelativeLayout rlAnalyzeThird;
-
+    //利润
     @BindView(R.id.rl_analyze_fourth)
     RelativeLayout rlAnalyzeFourth;
 
@@ -90,50 +93,39 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
     @BindView(R.id.tv_state_fourth)
     TextView tvStateFourth;
 
-
     @BindView(R.id.fl_tab)
     FrameLayout flTab;
     @BindView(R.id.tv_before_info)
     TextView tvBeforeInfo;
     @BindView(R.id.tv_save)
     TextView tvSave;
-    private static final String TAG = AlarmAnalyzeWithTypeActivity.class.getSimpleName();
-
-    AlarmingBeforeYearFragment fragmentYear;
-    AlarmingBeforeMonthNewFragment fragmentMonth;
     @BindView(R.id.textview_title)
     TextView tvTitle;
+
+    @BindView(R.id.button_back)
+    ImageButton buttonBack;
 
     @BindView(R.id.tv_tab_year)
     TextView tvTabYear;
     @BindView(R.id.tv_tab_month)
     TextView tvTabMonth;
+    private static final String TAG = AlarmAnalyzeWithTypeActivity.class.getSimpleName();
 
+    AlarmingBeforeYearFragment fragmentYear;//往期年度
+    AlarmingBeforeMonthNewFragment fragmentMonth;//往期月度
 
-    protected static final int REQUEST_CODE_FIRST = 1100;
+    protected static final int REQUEST_CODE_FIRST = 1100; //返回码
 
-    protected static final int REQUEST_CODE_SECOND = 1101;
-
-    protected static final int REQUEST_CODE_THIRD = 1102;
-
-    protected static final int REQUEST_CODE_FOURTH = 1103;
-
-
-    protected List<String> excelsList = new ArrayList<>();
-    protected int excelSize = 0;
-    protected int optionalSize = 0;
-    protected int witch = -1;
+    protected List<String> excelsList = new ArrayList<>();//excel集合
     protected String userId;
-    protected int excelIndex = -1;
+    protected int excelIndex = -1;//标志上传的excel位置，用于上传成功后数据的刷新
 
-    Boolean isExpand = false;
-    protected int requestCode = 0;
-    private String intentType;
-    private String analyzeType = "";
-    private String uploadExcelType;
-    private String uploadTimeType = "1";//本页面上的都是本年度的，上月度/年度在fragment里
-    //    boolean firstVisibility = true;
-    boolean secondVisibility, thirdVisibility, fourthVisibility = false;
+    Boolean isExpand = false;//往期信息的折叠、显示
+    private String intentType;//上个页面传入的intent类型
+    private String analyzeType = "";//预警类型
+    private String uploadExcelType;//上传的类型：  所得税 "1" 增值税 "2" 资产负债："3" 利润："4"
+    private String uploadTimeType = "1";//标志是往年还是本年，此处固定本年度的（上月度/年度在fragment里）
+    boolean secondVisibility, thirdVisibility, fourthVisibility = false; //标志增值税、资产、利润布局是否显示
 
 
     @Override
@@ -209,7 +201,6 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
         rlAnalyzeSecond.setVisibility((secondVisibility) ? View.VISIBLE : View.GONE);
         rlAnalyzeThird.setVisibility((thirdVisibility) ? View.VISIBLE : View.GONE);
         rlAnalyzeFourth.setVisibility((fourthVisibility) ? View.VISIBLE : View.GONE);
-
 
     }
 
@@ -308,7 +299,6 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
         isExpand = !expand;
     }
 
-    //initData()
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -354,7 +344,7 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
             //收入类 & 成本类
             case "4":
             case "5":
-//判断 1
+           //判断
                 if (excelsList.get(1).equals("")) {
                     SimpleToast.toastMessage(getResources().getString(R.string.report_icomplete), Toast.LENGTH_SHORT);
                     return;
@@ -399,7 +389,6 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
         saveExcels(bean);
     }
 
-    //initData()
     //
 
     /**
@@ -426,27 +415,8 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
                     return;
                 }
                 SimpleToast.toastMessage(getResources().getString(R.string.success_upload), Toast.LENGTH_SHORT);
-
-                /*
-                {"response":"error","message":"失败","data":{"errorCode":400002,"msg":"服务器异常"}}
-                 */
-//                TestResponseBean responseBean = new TestResponseBean();
-//                responseBean.setResponse("error");
-//                responseBean.setMessage("失败");
-//                responseBean.setData(new TestResponseBean.DataBean(400002, "服务器异常"));
-//                s = JSON.toJSONString(responseBean);
-//                Loger.e(TAG + "--s.toJSONString --s" + s);
                 refreshResult(code, file.getName());
-                //"response":"success","message":"成功","data":{"dateStr":"1547123759541"}}
-
-                //   JSONObject jsonObject = JSON.parseObject(s);
                 JSONObject jsonData = JSON.parseObject(jsonObject.getString("data"));
-//                if (jsonData.getInteger("errorCode") ==null) {
-//
-//                    return;
-//                }
-
-
                 String fileId = jsonData.getString("dateStr");
                 excelsList.set(excelIndex, fileId);
                 for (int i = 0; i < excelsList.size(); i++) {
@@ -472,13 +442,6 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
 
     }
 
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        Loger.e(TAG + "--activity--onResume");
-    }
 
     private void saveExcels(SaveAlarmAnalyzeBean bean) {
 

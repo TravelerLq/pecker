@@ -38,9 +38,12 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 
+/**
+ * 预警结果
+ */
 public class AlarmingResultsFragment extends BaseFragment implements View.OnClickListener, DialogObserverHolder, OnRefreshListener, OnLoadMoreListener {
     private AlarmingResultAdapter mAdapter;
-    private List<AlarmingResultBean> listResults = new ArrayList<>();
+    private List<AlarmingResultBean> listResults = new ArrayList<>(); //结果集合
     SwipeToLoadLayout swipeToLoadLayout;
     private Context context;
     private String pageSize = "5";

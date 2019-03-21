@@ -28,7 +28,6 @@ public class ExpertsRecycleActivity extends BaseActivity {
     private Context context;
     private ExpertsReycleAdapter mAdapter;
     private List<ExpertsBean> listResults = new ArrayList<>();
-    private static final int VISIBLE_THRESHOLD = 10;
 
 
     @BindView(R.id.button_back)

@@ -16,6 +16,10 @@ import java.util.List;
 
 import butterknife.BindView;
 
+/**
+ * 个性化定制选择
+ */
+
 public class CustomMadeActivity extends BaseActivity {
 
     @BindView(R.id.tv_consult)
@@ -35,13 +39,13 @@ public class CustomMadeActivity extends BaseActivity {
     TextView tvTitle;
     @BindView(R.id.tv_sure)
     TextView tvSure;
-    Boolean isSelectConsult = false;
-    Boolean isSelectPlan = false;
-    Boolean isSelectAudit = false;
-    Boolean isSelectAccounting = false;
+    Boolean isSelectConsult = false; //税务咨询是否选择
+    Boolean isSelectPlan = false;//纳税规划是否选择
+    Boolean isSelectAudit = false;//纳税审计是否选择
+    Boolean isSelectAccounting = false;//代理记账是否选择
 
-    List<String> listCustoms;
-    String custom, plan, audit, accounting;
+    List<String> listCustoms; //存放选择定制项的集合
+    String custom, plan, audit, accounting; //string 值见下，易懂
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

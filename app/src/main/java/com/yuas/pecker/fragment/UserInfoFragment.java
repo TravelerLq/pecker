@@ -16,7 +16,10 @@ import com.yuas.pecker.activity.ProfessorCertificateActivity;
 import com.yuas.pecker.activity.VipLoginActivity;
 
 
-//琢税鸟 -用户信息
+/**
+ * 我的（用户信息）
+ */
+
 
 public class UserInfoFragment extends BaseFragment implements View.OnClickListener {
 
@@ -27,7 +30,7 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
     LinearLayout llExpertsCertificate;
 
     LinearLayout llAboutPecker;
-    TextView tvUnlogoin;;
+    TextView tvUnlogoin;;//退出str
 
 
     @Nullable
@@ -62,23 +65,29 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_vip_login:
+                //vip登陆
                 toActivity(UserInfoFragment.this, VipLoginActivity.class);
                 break;
             case R.id.ll_analyze_params:
+                //分析参数配置
                 toActivity(UserInfoFragment.this, AnalyzeParamsConfigActivity.class);
                 break;
             case R.id.ll_my_vedio:
+                //我的视频
                 toActivity(UserInfoFragment.this, MyVedioRecycleActivity.class);
                 break;
             case R.id.ll_expert_certificate:
+                //专家认证
                 toActivity(UserInfoFragment.this, ProfessorCertificateActivity.class);
               //  getExpertState();
 
                 break;
             case R.id.ll_about_pecker:
+                //关于
                 toActivity(UserInfoFragment.this, PeckerAaboutActivity.class);
                 break;
             case R.id.tv_unlogin:
+                //退出
               UserInfoFragment.this.getActivity().finish();
                 //
                 break;
@@ -87,8 +96,4 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
         }
     }
 
-    private void getExpertState() {
-
-
-    }
 }

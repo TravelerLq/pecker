@@ -34,7 +34,7 @@ public class AnalyzeParamsControl extends BaseControl {
 
     // （所得税及增值税申报数据）-上传excel文件
 
-    public Observable<String> uploadExcel(String excelType, String type, String userId, File file, final UploadProgressListener uploadProgressListener) {
+    public Observable<String> uploadExcel(String type, String userId, File file, final UploadProgressListener uploadProgressListener) {
 
         Retrofit retrofit = builderUploadPicRetrofitWithType(3);
         AnalyzeParamsApi api = retrofit.create(AnalyzeParamsApi.class);

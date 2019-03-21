@@ -33,6 +33,10 @@ import java.io.File;
 import butterknife.BindView;
 import io.reactivex.Observable;
 
+/**
+ * 上传视频
+ */
+
 public class UploadVideoActivity extends BaseActivity implements UploadProgressListener {
 
     @BindView(R.id.img_upload)
@@ -57,10 +61,10 @@ public class UploadVideoActivity extends BaseActivity implements UploadProgressL
     TextView tvSure;
 
     private Context context;
-    private boolean isSuccess = false;
-    private VedioUploadResponseBean bean;
+    private boolean isSuccess = false; //是否成功
+    private VedioUploadResponseBean bean; //视频bean
     private String userId = "24";
-    private String lemmaId = "";
+    private String lemmaId = ""; //相关联词条id
 
 
     @Override
@@ -112,7 +116,6 @@ public class UploadVideoActivity extends BaseActivity implements UploadProgressL
                 selectVedioFromLocal(context);
                 break;
             case R.id.tv_sure:
-                //testAubmit();
                 checkData();
                 break;
             default:
@@ -120,18 +123,6 @@ public class UploadVideoActivity extends BaseActivity implements UploadProgressL
         }
     }
 
-    String videoUrl = "http://cs.royalsecurity.cn/dcim/video/statement/video-9f97cdc7cd194f2e9ac43f116d385d4d.mp4";
-    String picUrl = "http://cs.royalsecurity.cn/dcim/video/statement/video-9f97cdc7cd194f2e9ac43f116d385d4d.jpg";
-
-    private void testAubmit() {
-        WordVideoBean wordVideoBean = new WordVideoBean();
-        wordVideoBean.setTitle("test_video_1");
-        wordVideoBean.setUserId(userId);
-        wordVideoBean.setLemmaId("1");
-        wordVideoBean.setVideoThumbnailUrl(picUrl);
-        wordVideoBean.setVideoUrl(videoUrl);
-        submit(wordVideoBean);
-    }
 
 
     //上传视频到服务器

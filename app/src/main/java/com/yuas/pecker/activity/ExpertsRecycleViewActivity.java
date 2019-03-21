@@ -29,6 +29,9 @@ import java.util.List;
 import butterknife.BindView;
 import io.reactivex.Observable;
 
+/**
+ * 专家咨询
+ */
 public class ExpertsRecycleViewActivity extends BaseActivity implements OnRefreshListener, OnLoadMoreListener {
     private ExpertsReycleAdapter mAdapter;
     SwipeToLoadLayout swipeToLoadLayout;
@@ -40,7 +43,7 @@ public class ExpertsRecycleViewActivity extends BaseActivity implements OnRefres
     TextView tvTitle;
 
 
-    private List<ExpertsBean> listResults = new ArrayList<>();
+    private List<ExpertsBean> listResults = new ArrayList<>();//专家列表
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

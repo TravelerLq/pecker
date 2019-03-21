@@ -39,6 +39,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 搜索出的excel列表
+ */
+
 public class ExcelRecycleActivity extends AppCompatActivity {
 
 //    @BindView(R.id.recycle_excel)
@@ -51,14 +55,11 @@ public class ExcelRecycleActivity extends AppCompatActivity {
     private Context context;
     private ExcelRecycleAdapter mAdapter;
     private List<FileInfoBean> list = new ArrayList<>();
-    private String fileDate;
-    private MyTask mTask;
+
     private Toolbar toolbar;
     private RecyclerView recyclerView;
-    private TextView emptyView;
-
-
-    private SearchEngine searchEngine;
+    private TextView emptyView;//没结果时，提示
+    private SearchEngine searchEngine;//搜素实现
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -164,8 +165,7 @@ public class ExcelRecycleActivity extends AppCompatActivity {
     }
 
     private void initRecycleView() {
-//        mTask = new MyTask();
-//        mTask.execute();
+
 
         LinearLayoutManager linearLayoutManager =
                 new LinearLayoutManager(context, LinearLayout.VERTICAL, false);
@@ -251,7 +251,6 @@ public class ExcelRecycleActivity extends AppCompatActivity {
                                 FileInfoBean info = new FileInfoBean(file);
 
                                 list.add(info);
-                                fileDate += f.getAbsolutePath() + ",";
 
                                 System.out.println("文件名称：" + f.getName());
                                 System.out.println("文件是否存在：" + f.exists());

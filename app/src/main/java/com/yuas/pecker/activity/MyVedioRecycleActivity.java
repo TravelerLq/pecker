@@ -49,15 +49,14 @@ public class MyVedioRecycleActivity extends BaseActivity implements OnRefreshLis
     @BindView(R.id.tv_no_data)
     TextView tvNodata;
 
-    //    RecyclerView recycleViewVedio;
     SwipeToLoadLayout swipeToLoadLayout;
     private Context context;
     private String userId = "24";
-    private int pageCount = 1;
-    private int pageSize = 5;
+    private int pageCount = 1;//页码
+    private int pageSize = 5;//页大小
 
     private MyvedioRecycleAdapter adapter;
-    private List<MyvedioResponseBean.ContentBean> listVedios;
+    private List<MyvedioResponseBean.ContentBean> listVedios;//vedio集合
 
 
     @Override
@@ -65,7 +64,7 @@ public class MyVedioRecycleActivity extends BaseActivity implements OnRefreshLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myvedio_recylce);
         tvTitle.setText(getResources().getString(R.string.my_vedio));
-
+        initViewEvent();
         listVedios = new ArrayList<>();
         swipeToLoadLayout = (SwipeToLoadLayout) findViewById(R.id.swipeToLoadLayout);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.swipe_target);
@@ -101,6 +100,7 @@ public class MyVedioRecycleActivity extends BaseActivity implements OnRefreshLis
 
         getData(pageCount, pageSize);
         autoRefresh();
+
     }
 
 
@@ -111,9 +111,9 @@ public class MyVedioRecycleActivity extends BaseActivity implements OnRefreshLis
             @Override
             public void onNext(MyvedioResponseBean myvedioResponseBean) {
                 super.onNext(myvedioResponseBean);
-                if(myvedioResponseBean.getContent().size()==0){
+                if (myvedioResponseBean.getContent().size() == 0) {
                     tvNodata.setVisibility(View.VISIBLE);
-                }else {
+                } else {
                     tvNodata.setVisibility(View.GONE);
                     listVedios.clear();
                     listVedios.addAll(myvedioResponseBean.getContent());
@@ -133,7 +133,7 @@ public class MyVedioRecycleActivity extends BaseActivity implements OnRefreshLis
 
     @Override
     protected void initViewEvent() {
-
+        buttonBack.setOnClickListener(this);
     }
 
     @Override
@@ -193,9 +193,9 @@ public class MyVedioRecycleActivity extends BaseActivity implements OnRefreshLis
                         @Override
                         public void run() {
                             swipeToLoadLayout.setRefreshing(false);
-                            if(myvedioResponseBean.getContent().size()==0){
-                              tvNodata.setVisibility(View.VISIBLE);
-                            }else {
+                            if (myvedioResponseBean.getContent().size() == 0) {
+                                tvNodata.setVisibility(View.VISIBLE);
+                            } else {
                                 tvNodata.setVisibility(View.GONE);
                             }
 

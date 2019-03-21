@@ -12,10 +12,8 @@ import android.widget.LinearLayout;
 import com.yuas.pecker.R;
 import com.yuas.pecker.activity.CustomMadeActivity;
 import com.yuas.pecker.activity.ExamComprehensiveActivity;
-import com.yuas.pecker.activity.ExaminationActivity;
 import com.yuas.pecker.activity.ExpertsRecycleViewActivity;
 import com.yuas.pecker.activity.LearnFinancialReportActivity;
-import com.yuas.pecker.activity.LoginActivity;
 import com.yuas.pecker.observer.DialogObserverHolder;
 
 import org.reactivestreams.Subscription;
@@ -35,11 +33,8 @@ public class HomePeckerFragment extends BaseFragment implements View.OnClickList
     private LinearLayout llExpert;
     private LinearLayout llCompreExam;
     private LinearLayout llExamReport;
-
     private LinearLayout llLearnReport;
     private LinearLayout llPolicy;
-
-
     private LinearLayout llCustomMade;
 
 
@@ -84,26 +79,20 @@ public class HomePeckerFragment extends BaseFragment implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ll_financial_examination:
-                //暂时不存在
-                toActivity(HomePeckerFragment.this, ExaminationActivity.class);
-                break;
-            case R.id.ll_expert:
-                toActivity(HomePeckerFragment.this, ExpertsRecycleViewActivity.class);
-                break;
             case R.id.ll_compre_exam:
-                //财税全面体检：
-
+                //财税全面体检
                 toActivity(HomePeckerFragment.this, ExamComprehensiveActivity.class);
                 break;
-            case R.id.ll__exam_report:
-                //暂时不存在
-                toActivity(HomePeckerFragment.this, LoginActivity.class);
+            case R.id.ll_expert:
+                //专家咨询
+                toActivity(HomePeckerFragment.this, ExpertsRecycleViewActivity.class);
                 break;
             case R.id.ll_learn_report:
+                //财税报表学习
                 toActivity(HomePeckerFragment.this, LearnFinancialReportActivity.class);
                 break;
             case R.id.ll_custom_made:
+                //个性化定制
                 toActivity(HomePeckerFragment.this, CustomMadeActivity.class);
                 break;
             default:

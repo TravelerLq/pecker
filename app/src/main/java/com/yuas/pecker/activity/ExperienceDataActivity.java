@@ -102,29 +102,28 @@ public class ExperienceDataActivity extends BaseActivity {
 
     @BindView(R.id.textview_title)
     TextView tvTitle;
-    private int year;
-    private String incomeTaxEndStr;
-    private String vatTaxEndStr;
-    private List<String> yearList;
-    private String redRequired;
-    private String uploadStr;
+    private int year;//选择的年
+    private String incomeTaxEndStr;//title str
+    private String vatTaxEndStr;//second tile str
+    private List<String> yearList;//年份集合
+    private String redRequired;//红色* 的html str
+    private String uploadStr;//上传str
     private int whitch; //标志哪个位置的textview
-    private int requestCode;
+    private int requestCode;//报表返回码
 
-    private static final int REQURST_CODE_INCOME_FIRST = 1031;
-    private static final int REQURST_CODE_INCOME_SECOND = 1032;
-    private static final int REQURST_CODE_INCOME_THIRD = 1033;
-    private static final int REQURST_CODE_INCOME_FOURTH = 1034;
+    private static final int REQURST_CODE_INCOME_FIRST = 1031;//year年所得税报表返回码
+    private static final int REQURST_CODE_INCOME_SECOND = 1032;//year-1年所得税报表返回码
+    private static final int REQURST_CODE_INCOME_THIRD = 1033;//year-2年所得税报表返回码
+    private static final int REQURST_CODE_INCOME_FOURTH = 1034;//year-3年所得税报表返回码
 
-    private static final int REQURST_CODE_VAT_FIRST = 1041;
-    private static final int REQURST_CODE_VAT_SECOND = 1042;
-    private static final int REQURST_CODE_VAT_THIRD = 1043;
-    public String excelType = "tax_apply";
+    private static final int REQURST_CODE_VAT_FIRST = 1041;//year-1年增值税报表返回码
+    private static final int REQURST_CODE_VAT_SECOND = 1042;//year-2年增值税报表返回码
+    private static final int REQURST_CODE_VAT_THIRD = 1043;//year-3年增值税报表返回码
     private String userId;
-    private boolean yearSelect = false;
+    private boolean yearSelect = false;//is year selected
 
-    private List<String> excelsList = new ArrayList<>();
-    private int excelSize = 7;
+    private List<String> excelsList = new ArrayList<>();//报表集合
+    private int excelSize = 7;//固定7个
 
     private String excelCode;//貌似无用
 
@@ -143,27 +142,6 @@ public class ExperienceDataActivity extends BaseActivity {
         // testList();
         initViewEvent();
         initCalendar();
-    }
-
-    private void testList() {
-
-        for (int i = 0; i < 5; i++) {
-
-            excelsList.add(i, "" + i);
-
-        }
-
-        whitch = 6;
-        if (whitch > excelsList.size() - 1) {
-            excelsList.add(whitch, "add3");
-        } else {
-            excelsList.set(whitch, "replace3");
-        }
-
-
-        for (int i = 0; i < 4; i++) {
-            Loger.e("--testList " + excelsList.get(i));
-        }
     }
 
     private void initTextView() {
@@ -325,7 +303,7 @@ public class ExperienceDataActivity extends BaseActivity {
                 Loger.e("excelPAth--" + path);
                 //上传啊，带着requestCode 所得税 4、5、6、7  下面增值税 8、9、10
 
-                uploadExcel(requestCode, excelCode, excelType, path, uploadProgressListener);
+                uploadExcel(requestCode, excelCode, path, uploadProgressListener);
 
             }
 
@@ -335,10 +313,10 @@ public class ExperienceDataActivity extends BaseActivity {
     // 上传excel表格
 
 
-    private void uploadExcel(final int code, final String excelType, String type, String path, UploadProgressListener uploadProgressListener) {
+    private void uploadExcel(final int code, final  String type, String path, UploadProgressListener uploadProgressListener) {
         final File file = new File(path);
         Loger.i("subFile = " + path);
-        Observable<String> observable = new AnalyzeParamsControl().uploadExcel(excelType, type, userId, file, uploadProgressListener);
+        Observable<String> observable = new AnalyzeParamsControl().uploadExcel( type, userId, file, uploadProgressListener);
         CommonDialogObserver<String> observer = new CommonDialogObserver<String>(ExperienceDataActivity.this) {
             @Override
             public void onNext(String s) {

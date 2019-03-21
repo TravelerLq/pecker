@@ -62,13 +62,10 @@ public class LearnFinancialDetailActivity extends BaseActivity implements Upload
     RecyclerView recyclerView;
 
 
-    private List<PicBean> list;
-    List<String> uploadPicsStr;
-    private ArrayList<String> selectedPhotos = new ArrayList<>();
-    private List<WordExplainBean.VideoListBean> vedioList;
+    List<String> uploadPicsStr;//图片集合
+    private List<WordExplainBean.VideoListBean> vedioList;//视频集合
     private VedioAdapter mAdater;
-    private String id;
-
+    private String id;//词条id
     private Context context;
 
 
@@ -81,14 +78,10 @@ public class LearnFinancialDetailActivity extends BaseActivity implements Upload
             id = getIntent().getStringExtra("id");
         }
 
-        Loger.e("--wordExplainId" + id);
-        list = new ArrayList<>();
         vedioList = new ArrayList<>();
         uploadPicsStr = new ArrayList<>();
         tvTitle.setText(getResources().getString(R.string.word_explain));
         initViewEvent();
-
-
         getData();
         initRecycleview();
 
