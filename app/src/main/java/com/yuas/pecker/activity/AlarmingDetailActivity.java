@@ -33,7 +33,6 @@ public class AlarmingDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_alarming_detail_layout);
         tvTitle.setText(getResources().getString(R.string.alarm_detial));
         initViewEvent();
-
         if (getIntent() != null) {
             resultIntent = getIntent().getStringExtra("result");
         }

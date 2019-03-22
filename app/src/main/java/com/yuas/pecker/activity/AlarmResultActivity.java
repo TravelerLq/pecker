@@ -9,17 +9,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-
 import com.yuas.pecker.R;
 import com.yuas.pecker.adapter.StringTextOnlyAdapter;
 import com.yuas.pecker.utils.Loger;
 import com.yuas.pecker.view.LinearLayoutColorDivider;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 
 public class AlarmResultActivity extends BaseActivity {
@@ -46,11 +41,6 @@ public class AlarmResultActivity extends BaseActivity {
         setContentView(R.layout.activity_result_recycle);
         context = AlarmResultActivity.this;
         listResults = getIntent().getStringArrayListExtra("list");
-        Loger.e("--listResults--" + listResults.size());
-        // getIntent().getStringArrayExtra("list");
-//      // arrayList=new String[]{"根据企业实际情况，核实是否存在少计收入、多列成本等问题","可能存在不计或少计营业收入、多列成本费用、扩大税前扣除范围等问题。",
-//               "多列成本费用、扩"};
-
         tvTitle.setText(getResources().getString(R.string.alarm));
         initRecycleView();
         initViewEvent();

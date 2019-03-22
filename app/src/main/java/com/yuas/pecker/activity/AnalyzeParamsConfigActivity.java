@@ -40,7 +40,6 @@ public class AnalyzeParamsConfigActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analyze_params_config);
         tvTitle.setText(getResources().getString(R.string.analyze_params_configration));
-
         initViewEvent();
     }
 

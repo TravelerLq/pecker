@@ -17,7 +17,7 @@ import com.yuas.pecker.utils.Loger;
 import butterknife.BindView;
 import io.reactivex.Observable;
 
-// 分析 资产负债表数据
+// 分析参数配置-资产负债表数据
 
 public class AssetsBalanceSheetActivity extends BaseActivity {
     @BindView(R.id.edt_assets_total_begin_first)
@@ -83,6 +83,7 @@ public class AssetsBalanceSheetActivity extends BaseActivity {
         String assetsTotalEndThird = edtAssetsTotalEndThird.getText().toString();
 
         ConfigParamsRequestBean bean = new ConfigParamsRequestBean();
+
         Observable<Boolean> observable = new AnalyzeParamsControl().saveCongfigParams(bean);
         CommonDialogObserver<Boolean> observer = new CommonDialogObserver<Boolean>(AssetsBalanceSheetActivity.this) {
             @Override
