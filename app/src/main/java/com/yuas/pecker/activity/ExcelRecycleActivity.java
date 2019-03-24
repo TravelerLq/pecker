@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -25,6 +24,7 @@ import com.github.dfqin.grantor.PermissionsUtil;
 import com.yuas.pecker.R;
 import com.yuas.pecker.adapter.ExcelRecycleAdapter;
 import com.yuas.pecker.bean.pecker.FileInfoBean;
+import com.yuas.pecker.data.ExcelListData;
 import com.yuas.pecker.utils.Loger;
 import com.yuas.pecker.utils.search.FileFilter;
 import com.yuas.pecker.utils.search.SearchEngine;
@@ -60,6 +60,7 @@ public class ExcelRecycleActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TextView emptyView;//没结果时，提示
     private SearchEngine searchEngine;//搜素实现
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -134,20 +135,21 @@ public class ExcelRecycleActivity extends AppCompatActivity {
 //        }
         final File path = Environment.getExternalStorageDirectory();
         FileFilter filter = new FileFilter();
-
         searchEngine = new SearchEngine(path, filter);
         searchEngine.setCallback(new SearchEngine.SearchEngineCallback() {
             @Override
             public void onFind(List<FileInfoBean> items) {
                 //
                 mAdapter.addItem(items);
+                ExcelListData.saveExcelFileList(items);
+
             }
 
             @Override
             public void onSearchDirectory(File file) {
 
                 String searchTitle = file.getPath().replace(Environment.getExternalStorageDirectory().getPath() + File.separator, "");
-              //  Loger.e("---searchTitle" + searchTitle);
+                //  Loger.e("---searchTitle" + searchTitle);
                 toolbar.setSubtitle(file.getPath().replace(Environment.getExternalStorageDirectory().getPath() + File.separator, ""));
             }
 
@@ -276,28 +278,6 @@ public class ExcelRecycleActivity extends AppCompatActivity {
         }
 
 
-    }
-
-
-    private class MyTask extends AsyncTask<String, Integer, String> {
-
-        @Override
-        protected String doInBackground(String... strings) {
-//            showProgress();
-            doSearch(filePath);
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            if (mAdapter == null) {
-                mAdapter = new ExcelRecycleAdapter(context, list);
-            }
-//            dimissProgress();
-            mAdapter.notifyDataSetChanged();
-
-            super.onPostExecute(s);
-        }
     }
 
 

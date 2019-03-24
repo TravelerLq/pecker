@@ -8,11 +8,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.yuas.pecker.R;
+import com.yuas.pecker.constant.AppConstant;
 import com.yuas.pecker.fragment.AlarmingResultsFragment;
 import com.yuas.pecker.fragment.HomePeckerFragment;
 import com.yuas.pecker.fragment.QuesAnswerFragment;
 import com.yuas.pecker.fragment.UserInfoFragment;
 import com.yuas.pecker.service.NoticeMsgService;
+import com.yuas.pecker.utils.Loger;
 import com.yuas.pecker.view.BottomNavigationItem;
 
 import java.util.ArrayList;
@@ -34,6 +36,7 @@ public class MainPeckerActivity extends BaseActivity {
     private Context mContext;
     private HomePeckerFragment homePeckerFragment;
     private List<BottomNavigationItem> data = new ArrayList<>(); //底部tab view的集合
+    private String intentType; //是否选中咨询结果
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,12 +44,12 @@ public class MainPeckerActivity extends BaseActivity {
         setContentView(R.layout.activity_main_pecker);
         ButterKnife.bind(this);
         mContext = MainPeckerActivity.this;
+        homePeckerFragment = new HomePeckerFragment();
+        addFragmentNotToStack(R.id.search_edit_frame, homePeckerFragment);
 
         tvTitle.setText(getResources().getString(R.string.home_title));
         buttonBack.setVisibility(View.GONE);
         tvHeader.setVisibility(View.GONE);
-        homePeckerFragment = new HomePeckerFragment();
-        addFragmentNotToStack(R.id.search_edit_frame, homePeckerFragment);
 
         BottomNavigationItem b1 = (BottomNavigationItem) findViewById(R.id.bni1);
         BottomNavigationItem b2 = (BottomNavigationItem) findViewById(R.id.bni2);
@@ -64,8 +67,45 @@ public class MainPeckerActivity extends BaseActivity {
         data.add(b2);
         data.add(b3);
         data.add(b4);
+
+
+        //  intent.putExtra(AppConstant.KEY_TYPE, intentTye);
+        //  setSelectTab();
+
         setClick(0);
+
         initViewEvent();
+
+    }
+
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        //setSelectTab();
+        Loger.e("---main--newintent");
+    }
+
+    private void setSelectTab() {
+        intentType = getIntent().getStringExtra("k");
+        Loger.e("---intentType" + intentType);
+        if (intentType != null &&
+                intentType.equals("question")) {
+            setClick(1);
+            addFragmentNotToStack(R.id.search_edit_frame, new QuesAnswerFragment());
+        } else {
+            homePeckerFragment = new HomePeckerFragment();
+            addFragmentNotToStack(R.id.search_edit_frame, homePeckerFragment);
+
+            setClick(0);
+        }
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
 
     }
 
@@ -74,14 +114,12 @@ public class MainPeckerActivity extends BaseActivity {
     protected void initViewEvent() {
 
         Intent intent = new Intent(MainPeckerActivity.this, NoticeMsgService.class);
-       // startService(intent);
+        // startService(intent);
         //
 //        registerBrodcast();
 
 
     }
-
-
 
 
     @Override

@@ -9,6 +9,7 @@ import android.os.Handler;
 
 import com.squareup.leakcanary.RefWatcher;
 import com.yuas.pecker.utils.Loger;
+import com.yuas.pecker.utils.reservoir.Reservoir;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +41,6 @@ public class App extends Application {
     }
 
 
-
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -55,7 +54,7 @@ public class App extends Application {
 //                ? RefWatcher.DISABLED
 //                : LeakCanary.install(VsdApplication.this);
 
-       // checkAuthority();
+        // checkAuthority();
 
         // 必须要加，否则cm sdk 将无法使用
 //        SparkApplicationContext.init(this);
@@ -63,9 +62,10 @@ public class App extends Application {
 
     /**
      * 用户id，spark-cm-sdk 需要。这里为了演示，直接写死
+     *
      * @return
      */
-    public static final String getUserId(){
+    public static final String getUserId() {
         return "user123";
     }
 
@@ -77,7 +77,7 @@ public class App extends Application {
 
     private void initReservoir() {
         try {
-         //   Reservoir.init(this, CACHE_DATA_MAX_SIZE);
+            Reservoir.init(this, CACHE_DATA_MAX_SIZE);
         } catch (Exception e) {
             //failure
             e.printStackTrace();
@@ -95,8 +95,6 @@ public class App extends Application {
     public static void setGlobalVar(App globalVar) {
         App.globalVar = globalVar;
     }
-
-
 
 
     /**

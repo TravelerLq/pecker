@@ -57,7 +57,7 @@ public class ExpertsRecycleViewActivity extends BaseActivity implements OnRefres
         recyclerView.setLayoutManager(gridLayoutManager);
         swipeToLoadLayout.setOnRefreshListener(this);
         swipeToLoadLayout.setOnLoadMoreListener(this);
-        //  getData();
+//        getData();
         mAdapter = new ExpertsReycleAdapter(context, listResults);
         recyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClickListener(new ExpertsReycleAdapter.OnItemClickListener() {
@@ -79,7 +79,7 @@ public class ExpertsRecycleViewActivity extends BaseActivity implements OnRefres
                 }
             }
         });
-        autoRefresh();
+       autoRefresh();
 
         initViewEvent();
     }
@@ -166,8 +166,11 @@ public class ExpertsRecycleViewActivity extends BaseActivity implements OnRefres
                         @Override
                         public void run() {
                             swipeToLoadLayout.setRefreshing(false);
-
+                            //  mAdapter.refreshList(list);
                             mAdapter.refreshList(list);
+                            for (int i = 0; i < list.size(); i++) {
+                                Loger.e("expert.name" + list.get(i).getTeachName());
+                            }
                         }
                     }, 20);
 

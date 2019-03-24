@@ -41,7 +41,6 @@ import me.iwf.photopicker.PhotoPicker;
  */
 
 
-
 public class WeiXinPayActivity extends BaseActivity {
 
     private IWXAPI api;
@@ -66,8 +65,6 @@ public class WeiXinPayActivity extends BaseActivity {
     List<String> uploadPicsStr;//图片上传success list string
     private ArrayList<String> selectedPhotos = new ArrayList<>(); //选中的图片集合
     private String userId = "24";
-
-
 
 
     @Override
@@ -98,14 +95,14 @@ public class WeiXinPayActivity extends BaseActivity {
 
             @Override
             public void viewImage(int pos) {
-               // SimpleToast.toastMessage("viewImage--" + pos, Toast.LENGTH_SHORT);
-                toActivityWithParams(ViewBigImageActivity.class, "url", AppConstant.BASE_URL_PIC + uploadPicsStr.get(0));
+                // SimpleToast.toastMessage("viewImage--" + pos, Toast.LENGTH_SHORT);
+                //   toActivityWithParams(ViewBigImageActivity.class, "url", AppConstant.BASE_URL_PIC + uploadPicsStr.get(0));
 
             }
 
             @Override
             public void deleteImage(int pos) {
-               // SimpleToast.toastMessage("成功" + pos, Toast.LENGTH_SHORT);
+                // SimpleToast.toastMessage("成功" + pos, Toast.LENGTH_SHORT);
                 list.remove(pos);
                 uploadPicsStr.remove(pos);
                 adapter.notifyDataSetChanged();
@@ -172,8 +169,9 @@ public class WeiXinPayActivity extends BaseActivity {
         super.onClick(view);
         if (view.getId() == R.id.btn_pay) {
             //  payByWX();
-//            toActivity(UsersFeedBackActivity.class);
+
             chedata();
+            // toActivity(QueAnswerRecycleViewActivity.class);
         }
     }
 
@@ -294,10 +292,11 @@ public class WeiXinPayActivity extends BaseActivity {
             public void onNext(Boolean aBoolean) {
                 super.onNext(aBoolean);
                 if (aBoolean) {
-                    Toast.makeText(WeiXinPayActivity.this,getResources().getString(R.string.success),Toast.LENGTH_SHORT).show();
-                 //   SimpleToast.toastMessage(getResources().getString(R.string.success), Toast.LENGTH_SHORT);
+                    Toast.makeText(WeiXinPayActivity.this, getResources().getString(R.string.success), Toast.LENGTH_SHORT).show();
+                    //   SimpleToast.toastMessage(getResources().getString(R.string.success), Toast.LENGTH_SHORT);
                     //付费提交成功--咨询结果 -问答列表
                     toActivity(QueAnswerRecycleViewActivity.class);
+//                    toActivityWithType(MainPeckerActivity.class, "question");
                     finish();
                 }
             }

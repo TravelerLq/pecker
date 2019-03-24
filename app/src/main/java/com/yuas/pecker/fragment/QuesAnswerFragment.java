@@ -75,7 +75,7 @@ public class QuesAnswerFragment extends BaseFragment implements View.OnClickList
             @Override
             public void OnItemClick(View view, int pos) {
                 String id = String.valueOf(listQueAnswers.get(pos).getId());
-                Loger.e("---getQuizzerId" + id);
+                Loger.e("---fragmnet id" + id);
 
                 toActivityWithId(QuesAnswerFragment.this, QueAnsDetailActivity.class, id);
             }

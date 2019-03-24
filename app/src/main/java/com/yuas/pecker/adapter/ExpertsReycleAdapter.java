@@ -91,8 +91,6 @@ public class ExpertsReycleAdapter extends RecyclerView.Adapter<ExpertsReycleAdap
         holder.tvName.setText(name + bean.getTeachName());
         holder.tvArea.setText(areaGoodAt + bean.getTerritory());
         holder.tvPrice.setText(price + bean.getPrice());
-        String photo = bean.getPhoto();
-        Loger.e("-url" + photo);
 
         RequestOptions options = new RequestOptions()
                 .placeholder(R.drawable.ic_image)
@@ -100,10 +98,18 @@ public class ExpertsReycleAdapter extends RecyclerView.Adapter<ExpertsReycleAdap
                 .fallback(R.drawable.ic_image)
                 .override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL);
 
-        Glide.with(context)
-                .load(bean.getPhoto())
-                .apply(options)
-                .into(holder.imgHeader);
+        if(bean.getPhoto()!=null){
+            Glide.with(context)
+                    .load(bean.getPhoto())
+                    .apply(options)
+                    .into(holder.imgHeader);
+        }else {
+            Glide.with(context)
+                    .load(R.drawable.ic_image)
+                    .apply(options)
+                    .into(holder.imgHeader);
+        }
+
 
         holder.rlExperts.setTag(position);
         holder.rlExperts.setOnClickListener(new View.OnClickListener() {

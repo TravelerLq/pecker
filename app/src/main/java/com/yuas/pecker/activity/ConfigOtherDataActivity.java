@@ -1,10 +1,12 @@
 package com.yuas.pecker.activity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.yuas.pecker.R;
@@ -13,6 +15,7 @@ import com.yuas.pecker.network.control.AnalyzeParamsControl;
 import com.yuas.pecker.observer.CommonDialogObserver;
 import com.yuas.pecker.observer.RxHelper;
 import com.yuas.pecker.utils.Loger;
+import com.yuas.pecker.view.widget.SimpleToast;
 
 import butterknife.BindView;
 import io.reactivex.Observable;
@@ -100,6 +103,25 @@ public class ConfigOtherDataActivity extends BaseActivity {
         String costIndutryStr = edtCostIndutry.getText().toString();
         String mainBusinessAverageStr = edtMainBusinessAverage.getText().toString();
 
+        if (!TextUtils.isEmpty(totalTaxSaleStr) && !TextUtils.isEmpty(totalTaxImportStr)
+                && !TextUtils.isEmpty(totalTaxPayable)
+                && !TextUtils.isEmpty(totalTaxApplicabilityRateStr) && !TextUtils.isEmpty(totalTaxSaleBySimple)
+                && !TextUtils.isEmpty(totalTaxSaleExport)
+
+                && !TextUtils.isEmpty(totalTaxSaleFree)
+                && !TextUtils.isEmpty(totalTaxTransportEntry) && !TextUtils.isEmpty(costIndutryStr)
+                && !TextUtils.isEmpty(mainBusinessAverageStr)
+                ) {
+            submit();
+        } else {
+            SimpleToast.toastMessage("填写信息不完整，请检查！", Toast.LENGTH_SHORT);
+        }
+
+
+
+    }
+
+    private void submit() {
         ConfigParamsRequestBean bean = new ConfigParamsRequestBean();
 
 
@@ -109,6 +131,7 @@ public class ConfigOtherDataActivity extends BaseActivity {
             public void onNext(Boolean s) {
                 super.onNext(s);
                 Loger.i("save-excel--" + s);
+                SimpleToast.toastMessage("成功", Toast.LENGTH_SHORT);
                 if (s) {
                     finish();
                 }

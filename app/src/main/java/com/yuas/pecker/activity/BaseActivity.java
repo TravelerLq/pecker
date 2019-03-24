@@ -243,6 +243,19 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
 
     }
 
+    /**
+     * 跳转页面
+     *
+     * @param clz 跳转到的类
+     * @param <T>
+     */
+    protected <T> void toActivityWithId(Class<T> clz, String intentTye) {
+        Intent intent = new Intent(this, clz);
+        intent.putExtra("id", intentTye);
+        startActivity(intent);
+
+    }
+
     protected <T> void toActivityWithTwoType(Class<T> clz, String intentTye, String type) {
         Intent intent = new Intent(this, clz);
         intent.putExtra(AppConstant.KEY_TYPE, intentTye);

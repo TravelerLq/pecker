@@ -3,10 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <include layout="@layout/activity_title"></include>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
     <com.aspsine.swipetoloadlayout.SwipeToLoadLayout
         android:id="@+id/swipeToLoadLayout"
@@ -31,5 +29,4 @@
             android:gravity="center" />
     </com.aspsine.swipetoloadlayout.SwipeToLoadLayout>
 
-    </ScrollView>
 </LinearLayout>

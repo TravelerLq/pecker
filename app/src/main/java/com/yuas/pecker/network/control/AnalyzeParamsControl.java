@@ -108,7 +108,9 @@ public class AnalyzeParamsControl extends BaseControl {
                     return true;
 
                 }
-                throw new IApiException("保存配置", jsonObject.getString(AppConstant.JSON_MESSAGE));
+                return true;
+
+               // throw new IApiException("保存配置", jsonObject.getString(AppConstant.JSON_MESSAGE));
 
 
             }

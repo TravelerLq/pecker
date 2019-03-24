@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 
 import com.yuas.pecker.R;
@@ -15,6 +16,7 @@ import com.yuas.pecker.activity.ExamComprehensiveActivity;
 import com.yuas.pecker.activity.ExpertsRecycleViewActivity;
 import com.yuas.pecker.activity.LearnFinancialReportActivity;
 import com.yuas.pecker.observer.DialogObserverHolder;
+import com.yuas.pecker.view.widget.SimpleToast;
 
 import org.reactivestreams.Subscription;
 
@@ -81,12 +83,6 @@ public class HomePeckerFragment extends BaseFragment implements View.OnClickList
         switch (v.getId()) {
             case R.id.ll_compre_exam:
                 //财税全面体检
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
                 toActivity(HomePeckerFragment.this, ExamComprehensiveActivity.class);
                 break;
             case R.id.ll_expert:

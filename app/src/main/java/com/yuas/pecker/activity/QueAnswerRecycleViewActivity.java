@@ -18,6 +18,7 @@ import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.yuas.pecker.R;
 import com.yuas.pecker.adapter.QueAnswerRecycleAdapter;
 import com.yuas.pecker.bean.pecker.QueAnswerBean;
+import com.yuas.pecker.fragment.QuesAnswerFragment;
 import com.yuas.pecker.network.control.QuesAnswerControl;
 import com.yuas.pecker.observer.CommonDialogObserver;
 import com.yuas.pecker.observer.RxHelper;
@@ -67,7 +68,8 @@ public class QueAnswerRecycleViewActivity extends BaseActivity implements OnRefr
             public void OnItemClick(View view, int pos) {
                 String id = String.valueOf(listQueAnswers.get(pos).getId());
                 Loger.e("---getQuizzerId" + id);
-                toActivityWithType(QueAnsDetailActivity.class, id);
+               toActivityWithId(QueAnsDetailActivity.class, id);
+
             }
         });
 
@@ -115,8 +117,11 @@ public class QueAnswerRecycleViewActivity extends BaseActivity implements OnRefr
         //加载更多啊
         pageCount++;
 
+        //加载更多啊
+        pageCount++;
+
         Observable<List<QueAnswerBean>> observable = new QuesAnswerControl().getAllQueAnswe(pageSize, pageCount + "", userId);
-        CommonDialogObserver<List<QueAnswerBean>> observer = new CommonDialogObserver<List<QueAnswerBean>>(QueAnswerRecycleViewActivity.this) {
+        CommonDialogObserver<List<QueAnswerBean>> observer = new CommonDialogObserver<List<QueAnswerBean>>(this) {
             @Override
             public void onNext(final List<QueAnswerBean> list) {
                 super.onNext(list);
@@ -134,7 +139,7 @@ public class QueAnswerRecycleViewActivity extends BaseActivity implements OnRefr
                         swipeToLoadLayout.setLoadingMore(false);
 
                     }
-                }, 2000);
+                }, 20);
 
             }
 
@@ -148,6 +153,41 @@ public class QueAnswerRecycleViewActivity extends BaseActivity implements OnRefr
 
         };
         RxHelper.bindOnUI(observable, observer);
+
+
+//        Observable<List<QueAnswerBean>> observable = new QuesAnswerControl().getAllQueAnswe(pageSize, pageCount + "", userId);
+//        CommonDialogObserver<List<QueAnswerBean>> observer = new CommonDialogObserver<List<QueAnswerBean>>(QueAnswerRecycleViewActivity.this) {
+//            @Override
+//            public void onNext(final List<QueAnswerBean> list) {
+//                super.onNext(list);
+//                // listResults.addAll(list);
+//                swipeToLoadLayout.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        if (list.size() == 0) {
+//                            SimpleToast.toastMessage(getResources().getString(R.string.no_more_data), Toast.LENGTH_SHORT);
+//                        } else {
+//                            //
+//                            mAdapter.setList(list);
+//                        }
+//                        //pageCount++;
+//                        swipeToLoadLayout.setLoadingMore(false);
+//
+//                    }
+//                }, 2000);
+//
+//            }
+//
+//            @Override
+//            public void onError(Throwable t) {
+//                super.onError(t);
+//
+//
+//            }
+//
+//
+//        };
+//        RxHelper.bindOnUI(observable, observer);
 
 
     }

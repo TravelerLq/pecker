@@ -323,7 +323,10 @@ public class AlarmingBeforeYearFragment extends BaseFragment implements DialogOb
                 JSONObject jsonData = JSON.parseObject(jsonObject.getString("data"));
 
                 String fileId = jsonData.getString("dateStr");
+                Loger.e("whitch---" + whitch + "   fileId" + fileId);
                 excelsList.set(whitch, fileId);
+
+
 
                 for (int i = 0; i < excelsList.size(); i++) {
                     String itemStr = excelsList.get(i);
@@ -372,6 +375,7 @@ public class AlarmingBeforeYearFragment extends BaseFragment implements DialogOb
 
     private void setText(TextView tvSubmitIncomeFirst, String fileName) {
         tvSubmitIncomeFirst.setText(getResources().getText(R.string.re_upload));
+
     }
 
     //选择Excel文件
@@ -404,7 +408,7 @@ public class AlarmingBeforeYearFragment extends BaseFragment implements DialogOb
         super.onPause();
         Loger.e(TAG + "-onPause");
         fragmentListener.innextExcelIist(excelsList);
-     //   YearMonthData.saveStringList(excelsList);
+        //   YearMonthData.saveStringList(excelsList);
 
 
     }
@@ -412,13 +416,13 @@ public class AlarmingBeforeYearFragment extends BaseFragment implements DialogOb
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Loger.e(TAG+"---destory---");
+        Loger.e(TAG + "---destory---");
     }
 
     @Override
     public void onDestroyView() {
         fragmentListener.innextExcelIist(excelsList);
-        Loger.e(TAG+"---onDestroyView---");
+        Loger.e(TAG + "---onDestroyView---");
         super.onDestroyView();
     }
 
