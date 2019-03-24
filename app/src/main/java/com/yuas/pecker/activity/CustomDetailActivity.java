@@ -93,6 +93,7 @@ public class CustomDetailActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_custom_detail);
         getIndustry();
         select = getResources().getString(R.string.select_please);
         initViewEvent();

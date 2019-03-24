@@ -55,7 +55,7 @@ public class LearnFinancialSecondRecActivity extends BaseActivity implements OnR
         context = LearnFinancialSecondRecActivity.this;
         id = getIntent().getStringExtra("id");
         //标题 从上级传入的title
-       tvTitle.setText(getResources().getString(R.string.learn_financial_report));
+       tvTitle.setText(getResources().getString(R.string.word));
         swipeToLoadLayout = (SwipeToLoadLayout) findViewById(R.id.swipeToLoadLayout);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.swipe_target);
 

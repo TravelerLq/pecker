@@ -46,7 +46,7 @@ public class QuesAnswerFragment extends BaseFragment implements View.OnClickList
     private QueAnswerRecycleAdapter mAdapter;
     SwipeToLoadLayout swipeToLoadLayout;
     private Context context;
-    private String pageSize = "5";//一页数据大小
+    private String pageSize = "6";//一页数据大小
     private int pageCount = 1;//页下标
     private String userId = "24";
 
@@ -162,7 +162,7 @@ public class QuesAnswerFragment extends BaseFragment implements View.OnClickList
                         swipeToLoadLayout.setLoadingMore(false);
 
                     }
-                }, 2000);
+                }, 20);
 
             }
 
@@ -196,7 +196,7 @@ public class QuesAnswerFragment extends BaseFragment implements View.OnClickList
                             swipeToLoadLayout.setRefreshing(false);
                             mAdapter.setList(list);
                         }
-                    }, 2000);
+                    }, 20);
 
 
                 }

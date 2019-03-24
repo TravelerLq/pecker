@@ -73,7 +73,7 @@
                 <GridView
                     android:id="@+id/grid_view_pics"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/dimen_100"
                     android:layout_below="@+id/tv_pictures_title"
                     android:layout_marginTop="@dimen/dimen_10"
                     android:layout_marginBottom="@dimen/dimen_10"

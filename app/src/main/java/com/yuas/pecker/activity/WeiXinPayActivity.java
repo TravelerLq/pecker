@@ -98,14 +98,14 @@ public class WeiXinPayActivity extends BaseActivity {
 
             @Override
             public void viewImage(int pos) {
-                SimpleToast.toastMessage("viewImage--" + pos, Toast.LENGTH_SHORT);
+               // SimpleToast.toastMessage("viewImage--" + pos, Toast.LENGTH_SHORT);
                 toActivityWithParams(ViewBigImageActivity.class, "url", AppConstant.BASE_URL_PIC + uploadPicsStr.get(0));
 
             }
 
             @Override
             public void deleteImage(int pos) {
-                SimpleToast.toastMessage("deleteImage--" + pos, Toast.LENGTH_SHORT);
+               // SimpleToast.toastMessage("成功" + pos, Toast.LENGTH_SHORT);
                 list.remove(pos);
                 uploadPicsStr.remove(pos);
                 adapter.notifyDataSetChanged();

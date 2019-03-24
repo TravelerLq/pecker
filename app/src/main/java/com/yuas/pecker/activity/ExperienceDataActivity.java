@@ -13,9 +13,11 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
 import com.yuas.pecker.R;
 import com.yuas.pecker.bean.pecker.FileInfoBean;
 import com.yuas.pecker.bean.pecker.SaveFileBean;
+import com.yuas.pecker.constant.AppConstant;
 import com.yuas.pecker.network.control.AnalyzeParamsControl;
 import com.yuas.pecker.network.control.UploadProgressListener;
 import com.yuas.pecker.observer.CommonDialogObserver;
@@ -125,7 +127,7 @@ public class ExperienceDataActivity extends BaseActivity {
     private List<String> excelsList = new ArrayList<>();//报表集合
     private int excelSize = 7;//固定7个
 
-    private String excelCode;//貌似无用
+    private String excelCode;//上传类型标志
 
 
     @Override
@@ -156,7 +158,7 @@ public class ExperienceDataActivity extends BaseActivity {
         tvVatTitleSecond.setText(Html.fromHtml(redRequired + vatTaxEndStr));
         tvVatTitleThird.setText(Html.fromHtml(redRequired + vatTaxEndStr));
 
-        //先未excelList全部赋值为空
+        //先excelList全部赋值为空
         for (int i = 0; i < excelSize; i++) {
             excelsList.add("");
         }
@@ -268,9 +270,10 @@ public class ExperienceDataActivity extends BaseActivity {
 
     private void checkData() {
 
-        //检查 又一个为""则sheet上传不完整
+        //检查 一个为""则sheet上传不完整
         for (int i = 0; i < excelSize; i++) {
             String itemStr = excelsList.get(i);
+            Loger.e("--excelsList.get(i)" + itemStr);
             if (TextUtils.isEmpty(itemStr)) {
                 SimpleToast.toastMessage(getResources().getString(R.string.report_icomplete), Toast.LENGTH_SHORT);
                 return;
@@ -302,7 +305,6 @@ public class ExperienceDataActivity extends BaseActivity {
                 String path = bean.getAbPath();
                 Loger.e("excelPAth--" + path);
                 //上传啊，带着requestCode 所得税 4、5、6、7  下面增值税 8、9、10
-
                 uploadExcel(requestCode, excelCode, path, uploadProgressListener);
 
             }
@@ -313,27 +315,41 @@ public class ExperienceDataActivity extends BaseActivity {
     // 上传excel表格
 
 
-    private void uploadExcel(final int code, final  String type, String path, UploadProgressListener uploadProgressListener) {
+    private void uploadExcel(final int code, final String type, String path, UploadProgressListener uploadProgressListener) {
         final File file = new File(path);
         Loger.i("subFile = " + path);
-        Observable<String> observable = new AnalyzeParamsControl().uploadExcel( type, userId, file, uploadProgressListener);
+        Observable<String> observable = new AnalyzeParamsControl().uploadExcel(type, userId, file, uploadProgressListener);
         CommonDialogObserver<String> observer = new CommonDialogObserver<String>(ExperienceDataActivity.this) {
             @Override
             public void onNext(String s) {
                 super.onNext(s);
                 Loger.i("subExcelFile" + s + "");
-                refreshResult(code, file.getName());
-                //"response":"success","message":"成功","data":{"dateStr":"1547123759541"}}
                 JSONObject jsonObject = JSON.parseObject(s);
-                JSONObject jsonData = JSON.parseObject(jsonObject.getString("data"));
-                String fileId = jsonData.getString("dateStr");
-                excelsList.set(whitch, fileId);
+                String status = jsonObject.getString(AppConstant.JSON_RESPONSE);
+                String msg = jsonObject.getString(AppConstant.JSON_MESSAGE);
+                //success
+                if (status.equals(AppConstant.JSON_SUCCESS)) {
+                    SimpleToast.toastMessage("成功！", Toast.LENGTH_SHORT);
+                    //refresh tv according code
+                    refreshResult(code, file.getName());
+                    JSONObject jsonData = JSON.parseObject(jsonObject.getString("data"));
+                    String fileId = jsonData.getString("dateStr");
+                    Loger.e("--whitch--" + whitch);
+                    Loger.e("--fileId--" + fileId);
+                    excelsList.set(whitch, fileId);
 
-                for (int i = 0; i < excelsList.size(); i++) {
-                    String itemStr = excelsList.get(i);
-                    Loger.e("---uploadexcelId" + itemStr);
+                    for (int i = 0; i < excelsList.size(); i++) {
+                        String itemStr = excelsList.get(i);
+                        Loger.e("---uploadexcelId" + itemStr);
 
+                    }
+                } else {
+
+                    SimpleToast.toastMessage("失败，请重试！", Toast.LENGTH_SHORT);
                 }
+
+                //"response":"success","message":"成功","data":{"dateStr":"1547123759541"}}
+
 
             }
 
@@ -368,6 +384,12 @@ public class ExperienceDataActivity extends BaseActivity {
                 super.onNext(s);
                 Loger.i("save-excel--" + s);
                 if (s) {
+                    SimpleToast.toastMessage(getResources().getString(R.string.success), Toast.LENGTH_SHORT);
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     finish();
                 }
             }

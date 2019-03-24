@@ -53,7 +53,7 @@ public class ExpertsRecycleViewActivity extends BaseActivity implements OnRefres
         tvTitle.setText(getResources().getString(R.string.expert_advice));
         swipeToLoadLayout = (SwipeToLoadLayout) findViewById(R.id.swipeToLoadLayout);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.swipe_target);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
         swipeToLoadLayout.setOnRefreshListener(this);
         swipeToLoadLayout.setOnLoadMoreListener(this);
@@ -104,7 +104,7 @@ public class ExpertsRecycleViewActivity extends BaseActivity implements OnRefres
         buttonBack.setOnClickListener(this);
     }
 
-    private String pageSize = "2";
+    private String pageSize = "6";
     private int pageCount = 1;
 
     @Override
@@ -130,7 +130,7 @@ public class ExpertsRecycleViewActivity extends BaseActivity implements OnRefres
                         swipeToLoadLayout.setLoadingMore(false);
 
                     }
-                }, 2000);
+                }, 20);
 
             }
 
@@ -148,9 +148,11 @@ public class ExpertsRecycleViewActivity extends BaseActivity implements OnRefres
 
     }
 
+    //下拉刷新
+
     @Override
     public void onRefresh() {
-
+        Loger.e("----onRefrsh---");
         if (pageCount == 1) {
             swipeToLoadLayout.setRefreshing(true);
             Observable<List<ExpertsBean>> observable = new ExpertsConsultControl().getAllExperts(pageSize, pageCount + "");
@@ -158,14 +160,16 @@ public class ExpertsRecycleViewActivity extends BaseActivity implements OnRefres
                 @Override
                 public void onNext(final List<ExpertsBean> list) {
                     super.onNext(list);
+
                     // listResults.addAll(list);
                     swipeToLoadLayout.postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             swipeToLoadLayout.setRefreshing(false);
-                            mAdapter.setList(list);
+
+                            mAdapter.refreshList(list);
                         }
-                    }, 2000);
+                    }, 20);
 
 
                 }
@@ -193,6 +197,7 @@ public class ExpertsRecycleViewActivity extends BaseActivity implements OnRefres
             @Override
             public void run() {
                 swipeToLoadLayout.setRefreshing(true);
+
             }
         });
     }

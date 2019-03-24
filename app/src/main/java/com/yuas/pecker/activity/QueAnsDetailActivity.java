@@ -6,12 +6,10 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -26,7 +24,7 @@ import com.yuas.pecker.network.control.QuesAnswerControl;
 import com.yuas.pecker.observer.CommonDialogObserver;
 import com.yuas.pecker.observer.RxHelper;
 import com.yuas.pecker.view.LinearLayoutColorDivider;
-import com.yuas.pecker.view.widget.SimpleToast;
+import com.yuas.pecker.view.ScrollGridView;
 
 
 import java.util.ArrayList;
@@ -42,7 +40,11 @@ public class QueAnsDetailActivity extends BaseActivity {
     @BindView(R.id.tv_question_details_content)
     TextView tvProblemContent;
     @BindView(R.id.grid_view_pics)
-    GridView gridViewPics;
+    ScrollGridView gridViewPics;
+
+//        @BindView(R.id.grid_view_pics)
+//    RecyclerView gridViewPics;
+
     @BindView(R.id.tv_question_details_time)
     TextView tvQuestionTime;
     @BindView(R.id.recycle_view_append_problems)
@@ -66,6 +68,8 @@ public class QueAnsDetailActivity extends BaseActivity {
     TextView tvNOAnswer;
     @BindView(R.id.ll_appends)
     LinearLayout llAppends;
+    @BindView(R.id.tv_no_append)
+    TextView tvNoAppend;
     @BindView(R.id.textview_title)
     TextView tvTitle;
     //
@@ -167,6 +171,7 @@ public class QueAnsDetailActivity extends BaseActivity {
                 listPics.clear();
                 listAppends.clear();
                 listAnswers.clear();
+
                 //
                 // queAppendId = String.valueOf(responseBean.getId());
                 tvProblemContent.setText(responseBean.getDescription());
@@ -186,23 +191,32 @@ public class QueAnsDetailActivity extends BaseActivity {
                     if (exchangeListBeans.get(i).getType() == 2) {
                         //追问
                         listAppends.add(exchangeListBeans.get(i).getMsgValue());
+
                     } else {
                         listAnswers.add(exchangeListBeans.get(i).getMsgValue());
                     }
                 }
-
+               // testData();
                 //没有回复，提示
                 if (listAnswers.size() == 0) {
                     tvNOAnswer.setVisibility(View.VISIBLE);
                 } else {
                     tvNOAnswer.setVisibility(View.GONE);
                 }
-                //没有追加，则隐藏追加布局
+
+                //没有问题追加：
                 if (listAppends.size() == 0) {
-                    llAppends.setVisibility(View.GONE);
+                    tvNoAppend.setVisibility(View.VISIBLE);
                 } else {
-                    llAppends.setVisibility(View.VISIBLE);
+                    tvNoAppend.setVisibility(View.GONE);
                 }
+
+//                //没有追加，则隐藏追加布局
+//                if (listAppends.size() == 0) {
+//                    llAppends.setVisibility(View.GONE);
+//                } else {
+//                    llAppends.setVisibility(View.VISIBLE);
+//                }
 
                 recycleAnswersAapter.notifyDataSetChanged();
                 recycleAppendAdapter.notifyDataSetChanged();
@@ -237,7 +251,13 @@ public class QueAnsDetailActivity extends BaseActivity {
         RxHelper.bindOnUI(observable, observer);
     }
 
+    private void testData() {
+        for(int i=0;i<10;i++){
+            listAppends.add("problem i"+i);
+            listAnswers.add("problemi"+i);
+        }
 
+    }
 
 
 }

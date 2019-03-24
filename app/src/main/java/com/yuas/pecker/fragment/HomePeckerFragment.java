@@ -81,6 +81,12 @@ public class HomePeckerFragment extends BaseFragment implements View.OnClickList
         switch (v.getId()) {
             case R.id.ll_compre_exam:
                 //财税全面体检
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 toActivity(HomePeckerFragment.this, ExamComprehensiveActivity.class);
                 break;
             case R.id.ll_expert:

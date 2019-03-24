@@ -115,7 +115,6 @@
 
 
     <string-array name="company_type">　
-        <item>--请选择--</item>
         <item>国有企业</item>　
         <item>集体企业</item>　　
         <item>联营企业</item>　　
@@ -297,6 +296,7 @@
 
 
     <string name="learn_financial_report">财税报表学习</string>
+    <string name="word">相关词条</string>
     <string name="financial_policy_explanation">财税政策解读</string>
     <string name="custom_made">个性化定制</string>
     <string name="ff">体检报告</string>
@@ -447,6 +447,7 @@
 
     <string name="name">姓名</string>
     <string name="name_input">请输入姓名</string>
+    <string name="name_">姓名:</string>
 
     <string name="certificate_no">职称证书号</string>
     <string name="certificate_no_input">请输入职称证书号</string>
@@ -503,7 +504,7 @@
 
     <string name="no_empty_address_register">公司注册地址不可为空！</string>
 
-    <string name="no_empty_address_manage">公司注册地址不可为空！</string>
+    <string name="no_empty_address_manage">公司经营地址不可为空！</string>
     <string name="please_select_vat">请选择增值税征收方式</string>
 
     <string name="please_select_nature">请选择公司性质</string>

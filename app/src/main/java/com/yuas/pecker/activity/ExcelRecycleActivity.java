@@ -301,10 +301,10 @@ public class ExcelRecycleActivity extends AppCompatActivity {
     }
 
 
-    ArrayList<String> FOLDERS = new ArrayList<String>();
-    ArrayList<String> XLS_FILES = new ArrayList<String>();
-
-    int CALL_COUNT = 0;
+//    ArrayList<String> FOLDERS = new ArrayList<String>();
+//    ArrayList<String> XLS_FILES = new ArrayList<String>();
+//
+//    int CALL_COUNT = 0;
 
 
 }

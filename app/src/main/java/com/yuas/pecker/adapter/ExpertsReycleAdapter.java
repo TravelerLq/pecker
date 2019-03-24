@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.yuas.pecker.R;
 import com.yuas.pecker.bean.pecker.ExpertsBean;
 import com.yuas.pecker.utils.Loger;
@@ -64,6 +65,11 @@ public class ExpertsReycleAdapter extends RecyclerView.Adapter<ExpertsReycleAdap
         notifyDataSetChanged();
     }
 
+    public void refreshList(List<ExpertsBean> listAdd) {
+        list.clear();
+        list.addAll(listAdd);
+        notifyDataSetChanged();
+    }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -81,12 +87,22 @@ public class ExpertsReycleAdapter extends RecyclerView.Adapter<ExpertsReycleAdap
 
         String areaGoodAt = context.getResources().getString(R.string.area_good_at);
         String price = context.getResources().getString(R.string.price);
+        String name = context.getResources().getString(R.string.name_);
+        holder.tvName.setText(name + bean.getTeachName());
         holder.tvArea.setText(areaGoodAt + bean.getTerritory());
         holder.tvPrice.setText(price + bean.getPrice());
         String photo = bean.getPhoto();
         Loger.e("-url" + photo);
+
+        RequestOptions options = new RequestOptions()
+                .placeholder(R.drawable.ic_image)
+                .error(R.drawable.ic_image)
+                .fallback(R.drawable.ic_image)
+                .override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL);
+
         Glide.with(context)
                 .load(bean.getPhoto())
+                .apply(options)
                 .into(holder.imgHeader);
 
         holder.rlExperts.setTag(position);
@@ -129,6 +145,7 @@ public class ExpertsReycleAdapter extends RecyclerView.Adapter<ExpertsReycleAdap
         RelativeLayout rlExperts;
         TextView tvArea;
         TextView tvPrice;
+        TextView tvName;
         CircleImageView imgHeader;
         View view;
 
@@ -140,6 +157,8 @@ public class ExpertsReycleAdapter extends RecyclerView.Adapter<ExpertsReycleAdap
             tvArea = (TextView) view.findViewById(R.id.tv_area);
             //价格
             tvPrice = (TextView) view.findViewById(R.id.tv_price);
+            //name
+            tvName = (TextView) view.findViewById(R.id.tv_name);
             imgHeader = (CircleImageView) view.findViewById(R.id.iv_expert_header);
             rlExperts = (RelativeLayout) view.findViewById(R.id.rl_item_expert);
 
