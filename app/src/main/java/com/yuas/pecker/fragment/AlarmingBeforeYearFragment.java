@@ -20,6 +20,7 @@ import com.yuas.pecker.R;
 import com.yuas.pecker.activity.ExcelRecycleActivity;
 import com.yuas.pecker.bean.pecker.FileInfoBean;
 import com.yuas.pecker.constant.AppConstant;
+import com.yuas.pecker.data.YearMonthData;
 import com.yuas.pecker.network.control.AlarmingAnalyzeControl;
 import com.yuas.pecker.network.control.UploadProgressListener;
 import com.yuas.pecker.observer.CommonDialogObserver;
@@ -88,6 +89,7 @@ public class AlarmingBeforeYearFragment extends BaseFragment implements DialogOb
     @Override
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Loger.e("---onCreateView---");
         View view = inflater.inflate(R.layout.fragment_alarming_analyze_before, container, false);
         rlFirst = (LinearLayout) view.findViewById(R.id.rl_before_year_third);
         rlSecond = (LinearLayout) view.findViewById(R.id.rl_before_year_second);
@@ -109,9 +111,18 @@ public class AlarmingBeforeYearFragment extends BaseFragment implements DialogOb
             initViewByType(getArguments().getString("type"));
         }
 
+        //固定4个，没有的用""代替保存怎么保存呢？
         for (int i = 0; i < 4; i++) {
             excelsList.add(i, "");
         }
+
+//        if( YearMonthData.getStringList()!=null){
+//            excelsList.addAll( YearMonthData.getStringList());
+//            for (int i = 0; i < 4; i++) {
+//                Loger.e("---save excelsList=" + excelsList.get(i));
+//            }
+//        }
+
         initCalendar();
         return view;
     }
@@ -217,13 +228,6 @@ public class AlarmingBeforeYearFragment extends BaseFragment implements DialogOb
         }
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        Loger.e(TAG+"-onPause" );
-        fragmentListener.innextExcelIist(excelsList);
-
-    }
 
     private void initCalendar() {
         yearList = new ArrayList<>();
@@ -273,7 +277,7 @@ public class AlarmingBeforeYearFragment extends BaseFragment implements DialogOb
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Loger.e(TAG+"---onActivityResult");
+        Loger.e(TAG + "---onActivityResult");
         if (resultCode == RESULT_OK && requestCode == REQUEST_FRAGMENT_UPLOAD) {
             FileInfoBean bean = (FileInfoBean) data.getExtras().getSerializable("file");
             if (bean != null) {
@@ -323,7 +327,7 @@ public class AlarmingBeforeYearFragment extends BaseFragment implements DialogOb
 
                 for (int i = 0; i < excelsList.size(); i++) {
                     String itemStr = excelsList.get(i);
-                    Loger.e(TAG+"---fragment_year_excelList" + itemStr);
+                    Loger.e(TAG + "---fragment_year_excelList" + itemStr);
 
                 }
 
@@ -394,12 +398,27 @@ public class AlarmingBeforeYearFragment extends BaseFragment implements DialogOb
 
     }
 
-    //
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        Loger.e(TAG + "-onPause");
+        fragmentListener.innextExcelIist(excelsList);
+     //   YearMonthData.saveStringList(excelsList);
+
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Loger.e(TAG+"---destory---");
+    }
 
     @Override
     public void onDestroyView() {
-      //  fragmentListener.innextExcelIist(excelsList);
+        fragmentListener.innextExcelIist(excelsList);
+        Loger.e(TAG+"---onDestroyView---");
         super.onDestroyView();
     }
 

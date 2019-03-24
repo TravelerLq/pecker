@@ -27,8 +27,8 @@ public class NoticeMsgService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        Loger.e(TAG+"service-onStartCommand");
-        startTimer();
+//        Loger.e(TAG+"service-onStartCommand");
+//        startTimer();
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -41,7 +41,7 @@ public class NoticeMsgService extends Service {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                Loger.e(TAG+"=====startTimer ----- ");
+//                Loger.e(TAG+"=====startTimer ----- ");
                 getMsg();
             }
         };

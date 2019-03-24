@@ -46,7 +46,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         globalVar = this;
-
+        initReservoir();
         //出错保存机制
 //        CrashHandler catchHandler = CrashHandler.getInstance();
 //        catchHandler.init(getApplicationContext());

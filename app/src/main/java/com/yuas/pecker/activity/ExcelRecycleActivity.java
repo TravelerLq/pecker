@@ -147,7 +147,7 @@ public class ExcelRecycleActivity extends AppCompatActivity {
             public void onSearchDirectory(File file) {
 
                 String searchTitle = file.getPath().replace(Environment.getExternalStorageDirectory().getPath() + File.separator, "");
-                Loger.e("---searchTitle" + searchTitle);
+              //  Loger.e("---searchTitle" + searchTitle);
                 toolbar.setSubtitle(file.getPath().replace(Environment.getExternalStorageDirectory().getPath() + File.separator, ""));
             }
 

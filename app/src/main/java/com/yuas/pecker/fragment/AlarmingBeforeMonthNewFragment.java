@@ -89,6 +89,7 @@ public class AlarmingBeforeMonthNewFragment extends BaseFragment implements Dial
     @Override
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_alarming_analyze_before, container, false);
         rlFirst = (LinearLayout) view.findViewById(R.id.rl_before_year_third);
         rlSecond = (LinearLayout) view.findViewById(R.id.rl_before_year_second);
@@ -109,10 +110,11 @@ public class AlarmingBeforeMonthNewFragment extends BaseFragment implements Dial
         if (getArguments() != null) {
             initViewByType(getArguments().getString("type"));
         }
-
+        //固定4个，没有的用""代替保存怎么保存呢？
         for (int i = 0; i < 4; i++) {
             excelsList.add(i, "");
         }
+
         initCalendar();
         return view;
     }
@@ -221,8 +223,9 @@ public class AlarmingBeforeMonthNewFragment extends BaseFragment implements Dial
     @Override
     public void onPause() {
         super.onPause();
-        Loger.e(TAG + "-onPause");
         fragmentListener.innextMonthExcelIist(excelsList);
+        Loger.e(TAG+"----onPause----");
+
 
     }
 
@@ -390,12 +393,13 @@ public class AlarmingBeforeMonthNewFragment extends BaseFragment implements Dial
 
     }
 
+
+
     //
-
-
     @Override
     public void onDestroyView() {
-
+        Loger.e(TAG + "-onPause");
+        fragmentListener.innextMonthExcelIist(excelsList);
         super.onDestroyView();
     }
 

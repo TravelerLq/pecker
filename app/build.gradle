@@ -98,5 +98,7 @@ dependencies {
     //permisssion
     implementation 'com.github.dfqin:grantor:2.1.0'
 
+    implementation 'com.jakewharton:disklrucache:2.0.2'
+
 
 }

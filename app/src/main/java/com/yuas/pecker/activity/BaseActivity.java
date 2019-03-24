@@ -181,6 +181,18 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
         fragmentTransaction.commit();
     }
 
+    public void hideFragment(Fragment currentFragment, Fragment newFragment, int layoutId) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        if (currentFragment != newFragment) {
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            if (!newFragment.isAdded()) {
+                transaction.hide(currentFragment).add(layoutId, newFragment).commit();
+            } else {
+                transaction.hide(currentFragment).show(newFragment).commit();
+            }
+        }
+
+    }
 
     public void addFragmentByTagNotToStack(int layoutId, Fragment fragment, String tag) {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -560,20 +572,22 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
     }
 
 
-    NoticeBrodcastReceiver receiver =new NoticeBrodcastReceiver();
+    NoticeBrodcastReceiver receiver = new NoticeBrodcastReceiver();
 
-    //register 广播
-    protected void registerBrodcast() {
-        IntentFilter intentFilter =new IntentFilter();
-        intentFilter.addAction(AppConstant.NOTICE_ACTION);
-        registerReceiver(receiver,intentFilter);
-
-    }
+//    //register 广播
+//    protected void registerBrodcast() {
+//        IntentFilter intentFilter =new IntentFilter();
+//        intentFilter.addAction(AppConstant.NOTICE_ACTION);
+//        registerReceiver(receiver,intentFilter);
+//
+//    }
 
     //接收广播 （消息 有待开发）
-    int num =0;
+    int num = 0;
+
     private class NoticeBrodcastReceiver extends BroadcastReceiver {
-  int numInReceiver =0;
+        int numInReceiver = 0;
+
         @Override
         public void onReceive(Context context, Intent intent) {
             //onReceiver --
@@ -587,8 +601,6 @@ public abstract class BaseActivity extends RxFragmentActivity implements DialogO
 
         }
     }
-
-
 
 
 }

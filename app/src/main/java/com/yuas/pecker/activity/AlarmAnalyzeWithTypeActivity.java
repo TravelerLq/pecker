@@ -35,7 +35,6 @@ import io.reactivex.Observable;
 
 /**
  * 预警分析
- *
  */
 public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements AlarmingBeforeYearFragment.FragmentListener,
         AlarmingBeforeMonthNewFragment.FragmentMonthListener {
@@ -207,6 +206,8 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
 
     @Override
     protected void initViewEvent() {
+        buttonBack.setOnClickListener(this);
+
         tvSave.setOnClickListener(this);
         tvBeforeInfo.setOnClickListener(this);
         tvAnalyzeSubmitFirst.setOnClickListener(this);
@@ -234,6 +235,8 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
                 break;
             case R.id.tv_save:
                 //save judge the data
+
+                // toActivity(AlarmResultActivity.class);
                 checkData();
                 break;
             case R.id.tv_analyze_submit_first:
@@ -263,10 +266,13 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
                 code = REQUEST_CODE_FIRST;
                 break;
             case R.id.tv_tab_year:
-                initYearFragment();
+                //initYearFragment();
+                hideMonthFragment();
+
                 break;
             case R.id.tv_tab_month:
-                initMonthFragment();
+                hideYearFragment();
+                //initMonthFragment();
                 break;
 
             default:
@@ -344,7 +350,7 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
             //收入类 & 成本类
             case "4":
             case "5":
-           //判断
+                //判断
                 if (excelsList.get(1).equals("")) {
                     SimpleToast.toastMessage(getResources().getString(R.string.report_icomplete), Toast.LENGTH_SHORT);
                     return;
@@ -525,6 +531,41 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
         tvTabMonth.setTextColor(getResources().getColor(R.color.grey_97999e));
     }
 
+    //
+    private void hideYearFragment() {
+        if (fragmentYear == null) {
+            //fragmentYear = new AlarmingBeforeYearFragment(intentType);
+            fragmentYear = AlarmingBeforeYearFragment.newInstance(intentType);
+        }
+        if (fragmentMonth == null) {
+            fragmentMonth = AlarmingBeforeMonthNewFragment.newInstance(intentType);
+        }
+        //hide year :
+        hideFragment(fragmentYear, fragmentMonth, R.id.fl_tab);
+        //tvStoreCombine.setBackground(getResources().getDrawable(R.drawable.bg_combine_select));
+        tvTabMonth.setBackgroundColor(getResources().getColor(R.color.white));
+        tvTabYear.setBackgroundColor(getResources().getColor(R.color.grey_f6f9fb));
+        tvTabMonth.setTextColor(getResources().getColor(R.color.blue_528dd9));
+        tvTabYear.setTextColor(getResources().getColor(R.color.grey_97999e));
+    }
+
+    //
+    private void hideMonthFragment() {
+        if (fragmentYear == null) {
+            //fragmentYear = new AlarmingBeforeYearFragment(intentType);
+            fragmentYear = AlarmingBeforeYearFragment.newInstance(intentType);
+        }
+        if (fragmentMonth == null) {
+            fragmentMonth = AlarmingBeforeMonthNewFragment.newInstance(intentType);
+        }
+        hideFragment(fragmentMonth, fragmentYear, R.id.fl_tab);
+        //tvStoreCombine.setBackground(getResources().getDrawable(R.drawable.bg_combine_select));
+        tvTabYear.setBackgroundColor(getResources().getColor(R.color.white));
+        tvTabMonth.setBackgroundColor(getResources().getColor(R.color.grey_f6f9fb));
+        tvTabYear.setTextColor(getResources().getColor(R.color.blue_528dd9));
+        tvTabMonth.setTextColor(getResources().getColor(R.color.grey_97999e));
+    }
+
     //选中 月
     private void initMonthFragment() {
         if (fragmentMonth == null) {
@@ -550,9 +591,27 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
     List<String> allList = new ArrayList<>();
 
 
+    //获取保存的month信息
+    public List<String> getMonthList() {
+        return annexMonthList;
+    }
+
+
+    //获取保存的year信息
+    public List<String> getYearList() {
+        return annexYearList;
+    }
+
     @Override
     public void innextExcelIist(List<String> excelListFragment) {
-        Loger.e(TAG + "excelYearList" + excelListFragment.size());
+        Loger.e(TAG + "----excelYearList" + excelListFragment.size());
+
+        for (int i = 0; i < excelListFragment.size(); i++) {
+            String itemStr = excelListFragment.get(i);
+            Loger.e(TAG + "---fragment_year_excelList" + itemStr);
+
+        }
+
         annexYearList.clear();
         annexYearList.addAll(excelListFragment);
 
@@ -561,9 +620,10 @@ public class AlarmAnalyzeWithTypeActivity extends BaseActivity implements Alarmi
 
     @Override
     public void innextMonthExcelIist(List<String> excelList) {
-        for (int i = 0; i < excelsList.size(); i++) {
-            Loger.e("---excelMonthList" + excelsList.get(i));
+        for (int i = 0; i < excelList.size(); i++) {
+            Loger.e("---excelMonthList" + excelList.get(i));
         }
+
         annexMonthList.clear();
         annexMonthList.addAll(excelList);
     }

@@ -74,9 +74,9 @@ public class MainPeckerActivity extends BaseActivity {
     protected void initViewEvent() {
 
         Intent intent = new Intent(MainPeckerActivity.this, NoticeMsgService.class);
-        startService(intent);
+       // startService(intent);
         //
-        registerBrodcast();
+//        registerBrodcast();
 
 
     }

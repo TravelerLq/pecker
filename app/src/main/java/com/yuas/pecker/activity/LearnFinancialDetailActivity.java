@@ -61,7 +61,6 @@ public class LearnFinancialDetailActivity extends BaseActivity implements Upload
     @BindView(R.id.recycleview_vedio)
     RecyclerView recyclerView;
 
-
     List<String> uploadPicsStr;//图片集合
     private List<WordExplainBean.VideoListBean> vedioList;//视频集合
     private VedioAdapter mAdater;

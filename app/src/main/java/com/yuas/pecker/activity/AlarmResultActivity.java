@@ -17,6 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 
+/**
+ * 预警结果
+ */
+
 public class AlarmResultActivity extends BaseActivity {
 
     @BindView(R.id.recycle_excel)
@@ -40,10 +44,15 @@ public class AlarmResultActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_recycle);
         context = AlarmResultActivity.this;
-        listResults = getIntent().getStringArrayListExtra("list");
+      //  initTestData();
+
+        if(getIntent()!=null&&getIntent().getStringArrayListExtra("list")!=null){
+            listResults = getIntent().getStringArrayListExtra("list");
+        }
         tvTitle.setText(getResources().getString(R.string.alarm));
         initRecycleView();
         initViewEvent();
+
 
         if (listResults.size() == 0) {
             tvResult.setVisibility(View.VISIBLE);
@@ -53,6 +62,12 @@ public class AlarmResultActivity extends BaseActivity {
             tvResult.setVisibility(View.GONE);
         }
 
+    }
+
+    private void initTestData() {
+        listResults.add("result1");
+        listResults.add("result21");
+        listResults.add("result211");
     }
 
 
@@ -70,12 +85,12 @@ public class AlarmResultActivity extends BaseActivity {
         recyclerView.addItemDecoration(new LinearLayoutColorDivider(getResources(), R.color.white, R.dimen.dimen_2, DividerItemDecoration.VERTICAL));
         mAdapter = new StringTextOnlyAdapter(context, listResults);
         recyclerView.setAdapter(mAdapter);
-        mAdapter.setOnItemClickListener(new StringTextOnlyAdapter.OnItemClickListener() {
-            @Override
-            public void OnItemClick(View view, int pos) {
-                Loger.e("---AlarmresultPos" + pos);
-            }
-        });
+//        mAdapter.setOnItemClickListener(new StringTextOnlyAdapter.OnItemClickListener() {
+//            @Override
+//            public void OnItemClick(View view, int pos) {
+//                Loger.e("---AlarmresultPos" + pos);
+//            }
+//        });
     }
 
 

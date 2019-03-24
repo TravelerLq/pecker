@@ -37,8 +37,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class BaseControl {
-    private static final int SOCKET_TIMEOUT = 600;
-    private static final int CONNECT_TIMEOUT = 600;
+    private static final int SOCKET_TIMEOUT = 60;
+    private static final int CONNECT_TIMEOUT = 60;
 
 
     final TrustManager[] trustAllCerts = new TrustManager[]{
