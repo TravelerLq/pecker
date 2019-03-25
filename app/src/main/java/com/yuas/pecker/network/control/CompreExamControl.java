@@ -40,7 +40,7 @@ public class CompreExamControl extends BaseControl {
                 String status = jsonObject.getString(AppConstant.JSON_RESPONSE);
                 if (AppConstant.JSON_SUCCESS.equals(status)) {
                     int data = jsonObject.getIntValue(AppConstant.JSON_DATA);
-                    data = 2;
+//                    data = 2;
                     if (data == 1) {
                         return true;
                     } else {

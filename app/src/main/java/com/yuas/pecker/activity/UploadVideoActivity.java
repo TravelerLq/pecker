@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.bumptech.glide.Glide;
 import com.yuas.pecker.R;
 import com.yuas.pecker.bean.VedioUploadResponseBean;
 import com.yuas.pecker.bean.pecker.WordVideoBean;
@@ -59,6 +60,9 @@ public class UploadVideoActivity extends BaseActivity implements UploadProgressL
 
     @BindView(R.id.tv_sure)
     TextView tvSure;
+
+    @BindView(R.id.tv_vedio_delete)
+    TextView tvVedioDelete;
 
     private Context context;
     private boolean isSuccess = false; //是否成功
@@ -105,6 +109,7 @@ public class UploadVideoActivity extends BaseActivity implements UploadProgressL
         buttonBack.setOnClickListener(this);
         imgUpload.setOnClickListener(this);
         tvSure.setOnClickListener(this);
+        tvVedioDelete.setOnClickListener(this);
 
     }
 
@@ -118,11 +123,24 @@ public class UploadVideoActivity extends BaseActivity implements UploadProgressL
             case R.id.tv_sure:
                 checkData();
                 break;
+
+            case R.id.tv_vedio_delete:
+                deleteVedio();
+                break;
             default:
                 break;
         }
     }
 
+    //删除视频
+    private void deleteVedio() {
+        tvVedioDelete.setVisibility(View.GONE);
+        Glide.with(context)
+                .load(R.drawable.ic_upload)
+                .into(imgUpload);
+//        loadImage(context, imgUpload,);
+
+    }
 
 
     //上传视频到服务器
@@ -145,6 +163,7 @@ public class UploadVideoActivity extends BaseActivity implements UploadProgressL
 //                        String videoUrl = bean.getOriginalUrl();
                         String videoThumnailUrl = bean.getVideoPicuture();
                         loadImage(context, imgUpload, videoThumnailUrl);
+                        tvVedioDelete.setVisibility(View.VISIBLE);
                     }
 
                     // setVideoThumbnail();
@@ -169,6 +188,11 @@ public class UploadVideoActivity extends BaseActivity implements UploadProgressL
 
     private void checkData() {
         String title = edtTitleInput.getText().toString().trim();
+        if (tvVedioDelete.getVisibility() == View.GONE) {
+            //说明已经删除了，需要重新上传！
+            SimpleToast.toastMessage(getResources().getString(R.string.upload_video_first), Toast.LENGTH_SHORT);
+            return;
+        }
 
         if (!isSuccess) {
             SimpleToast.toastMessage(getResources().getString(R.string.upload_video_first), Toast.LENGTH_SHORT);
@@ -179,6 +203,7 @@ public class UploadVideoActivity extends BaseActivity implements UploadProgressL
             edtTitleInput.requestFocus();
             return;
         }
+
 
 //
 

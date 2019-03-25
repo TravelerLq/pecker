@@ -25,10 +25,19 @@
         android:id="@+id/img_upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dimen_10"
         android:layout_gravity="start"
         android:layout_margin="@dimen/dimen_15"
+        android:padding="@dimen/dimen_10"
         android:src="@drawable/ic_upload" />
+
+    <TextView
+        android:id="@+id/tv_vedio_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/re"
+        android:layout_marginLeft="@dimen/dimen_15"
+        android:text="删除"
+        android:visibility="gone"/>
 
     <TextView
 
@@ -44,9 +53,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dimen_15"
-        android:padding="@dimen/dimen_5"
         android:background="@drawable/bg_regtangle_white_xml"
-        android:hint="@string/hint_input_video_name" />
+        android:hint="@string/hint_input_video_name"
+        android:padding="@dimen/dimen_5" />
 
     <FrameLayout
         android:id="@+id/frame_video"
