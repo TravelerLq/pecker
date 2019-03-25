@@ -189,7 +189,7 @@ public class UploadVideoActivity extends BaseActivity implements UploadProgressL
     private void checkData() {
         String title = edtTitleInput.getText().toString().trim();
         if (tvVedioDelete.getVisibility() == View.GONE) {
-            //说明已经删除了，需要重新上传！
+            //说明已经删除了，需要重新上传！这里
             SimpleToast.toastMessage(getResources().getString(R.string.upload_video_first), Toast.LENGTH_SHORT);
             return;
         }
@@ -204,8 +204,6 @@ public class UploadVideoActivity extends BaseActivity implements UploadProgressL
             return;
         }
 
-
-//
 
         WordVideoBean wordVideoBean = new WordVideoBean();
         wordVideoBean.setTitle(title);
